@@ -14,17 +14,18 @@
     <a href="/" id="site-logo">
         <img src="https://i.ibb.co/Hhs9y6T/site-logo.png" alt="site-logo" width="132" height="132">   
     </a>
+    
     <div class="form-container">
         <form method="POST">
+            {{ form.hidden_tag() }}
             <div class="login-links-wrapper">
-                <span class="nav-active">
+                
                 <a href="/login">Login</a>
-                </span>
-                <span>
+                
+                <span class="nav-active">
                 <a href="/register">Register</a><br>
                 </span>
             </div>
-        {{ form.hidden_tag() }}
         {% for field in form if field.widget.input_type != 'hidden' %}
         {% for error in field.errors %}
             <span class="text-danger">{{ error }}</span>
@@ -34,9 +35,8 @@
         {{ field(placeholder=field.label.text) }} <br>
         </div>
         {% endfor %}
-      
-
-        <input type="submit" value="Login">
+    
+        <input type="submit" value="Register">
         </form>
     </div>
 </div>

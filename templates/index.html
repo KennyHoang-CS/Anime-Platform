@@ -24,13 +24,17 @@
                     <a href="/">Home</a>
                 </div>
                 <div class="nav-link-wrapper">
-                    <a href="index.html">Your Trending Animes</a>
+                    <a href="/users/{{ g.user.id }}">View your watch list</a>
                 </div>
                     <i class="fas fa-search"></i>
             </div>
             <div class="nav-right-side">
                 <div class="nav-link-wrapper">
-                    <a href="/login">User Login</a>
+                    {% if g.user %}
+                        <a href="/logout">Welcome {{g.user.username}}, Logout</a>
+                    {% else %}
+                        <a href="/login">User Login</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
