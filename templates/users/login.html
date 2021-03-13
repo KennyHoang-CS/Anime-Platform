@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+    
+    <div class="login-container">
+        
+    <a href="/" id="site-logo">
+        <img src="https://i.ibb.co/Hhs9y6T/site-logo.png" alt="site-logo" width="132" height="132">   
+    </a>
+    <div class="form-container">
+        <form method="POST">
+            <div class="login-links-wrapper">
+                <div class="nav-active">
+                <a href="">Login</a>
+                </div>
+                <a href="">Register</a><br>
+            </div>
+        {{ form.hidden_tag() }}
+        {% for field in form if field.widget.input_type != 'hidden' %}
+        {% for error in field.errors %}
+            <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+        <div class="input-field-wrapper">
+        <label for="">{{field.label.text}}</label><br>
+        {{ field(placeholder=field.label.text) }} <br>
+        </div>
+        {% endfor %}
+      
+
+        <input type="submit" value="Login">
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>
