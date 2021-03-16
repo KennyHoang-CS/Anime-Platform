@@ -1,7 +1,7 @@
 
 from flask import Flask, render_template, request, flash, redirect, session, g
 from flask_debugtoolbar import DebugToolbarExtension
-from models import connect_db, User, db
+from models import connect_db, User, db, WatchAnime
 from forms import UserLoginForm, UserRegisterForm, SearchForm
 from sqlalchemy.exc import IntegrityError
 import requests
@@ -132,14 +132,16 @@ def show_watch_list(user_id):
 # Routes to add anime to user's watch-list. 
 
 @app.route('/users/<int:anime_id>/add', methods=["POST"])
-def add_anime():
+def add_anime(anime_id):
     """ Add an anime to user's watch list. """
 
     if not g.user:
         flash("Access unauthorized.", "danger")
         return redirect("/")
-
-
+    
+    new_watch = WatchAnime(user_id=g.user.id, anime_id=anime_id)
+    db.session.add(new_watch)
+    db.session.commit()
 
     
     return redirect('/')

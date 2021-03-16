@@ -7,7 +7,9 @@ def processResponse(response, flag):
 
     if flag == 'trending': 
         for i in range(0, 16):
-            myList.append((response['data'][i]['attributes']['canonicalTitle'],
+            myList.append((
+            response['data'][i]['id'],
+            response['data'][i]['attributes']['canonicalTitle'],
             response['data'][i]['attributes']['synopsis'],
             response['data'][i]['attributes']['coverImage']['original'],
             response['data'][i]['attributes']['averageRating'],
