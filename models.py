@@ -69,4 +69,20 @@ class User(db.Model):
         return False
 
     
+class WatchList(db.Model):
+    """ Represents a user's watchlist. """
+
+    __tablename__ = 'UserAnimeList'
+
+    id = db.Column(
+        db.Integer,
+        primary_key=True
+    )
+
+    user_id = db.Column(
+        db.Integer,
+        nullable=False,
+        db.ForeignKey('users.id')
+    )
+
 

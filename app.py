@@ -2,7 +2,7 @@
 from flask import Flask, render_template, request, flash, redirect, session, g
 from flask_debugtoolbar import DebugToolbarExtension
 from models import connect_db, User, db
-from forms import UserLoginForm, UserRegisterForm
+from forms import UserLoginForm, UserRegisterForm, SearchForm
 from sqlalchemy.exc import IntegrityError
 import requests
 from helpers import processResponse
@@ -107,8 +107,8 @@ def logout():
 @app.route('/')
 def index():
     """ The homepage that will show the trending animes! """
-    res = requests.get("https://kitsu.io/api/edge/trending/anime?limit=12")
-    myList = processResponse(res.json())
+    response = requests.get("https://kitsu.io/api/edge/trending/anime?limit=16")
+    myList = processResponse(response.json(), "trending")
     return render_template('index.html', anime_trending_list = myList)
 
 
@@ -116,7 +116,7 @@ def index():
 #
 # Routes for user's watch-list. 
 
-@app.route('/users/<int:user_id')
+@app.route('/users/<int:user_id>')
 def show_watch_list(user_id):
     """ Show the user's anime watch list. """
 
@@ -125,7 +125,42 @@ def show_watch_list(user_id):
         return redirect("/")
 
     user = User.query.get_or_404(user_id)
+    return render_template('users/watch_list.html')
+
+##############################################################################
+#
+# Routes to add anime to user's watch-list. 
+
+@app.route('/users/<int:anime_id>/add', methods=["POST"])
+def add_anime():
+    """ Add an anime to user's watch list. """
+
+    if not g.user:
+        flash("Access unauthorized.", "danger")
+        return redirect("/")
+
+
+
     
+    return redirect('/')
+
+##############################################################################
+#
+# Routes to search anime. 
+
+@app.route('/search', methods=["GET", "POST"])
+def search_anime():
+    """ Search for specific anime. """
+    form = SearchForm()
+
+    if form.validate_on_submit():
+        data = request.form['englishTitle']
+        response =  requests.get(f'{BASE_PATH}/anime?filter[text]={data}')
+        myList = processResponse(response.json(), 'search')
+        return render_template('search.html', form=form, anime_search_list=myList)
+
+    
+    return render_template('search.html', form=form)
 
 
 

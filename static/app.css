@@ -55,6 +55,7 @@ body{
     line-height: 1.1;
     font-weight: 700;
     margin-bottom: 0.75rem;
+    text-align: center;
 }
 
 .anime-card-description{   
@@ -66,6 +67,42 @@ body{
     overflow-y: scroll;
 }
 
+.anime-card-genre{
+    font-size: medium;
+    border-bottom: 1px solid silver;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.anime-card-footers{
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-to-watch{
+    grid-column: 2 / -1;
+}
+
+.add-to-watch button{
+    text-decoration: none;
+    color: black;
+    border: none;
+    background: white;
+    font-size: large;
+}
+
+.add-to-watch button:hover{
+    cursor: pointer;
+    color: red;
+}
+
+.anime-card-avg-rating{
+    font-size: small;
+    font-weight: 700;
+    transform: translateY(5px);
+}
+
 
 /** Nav Styles **/
 
@@ -75,6 +112,7 @@ body{
     padding: 38px;
     background-color: white;
     height: 50px;
+    border-bottom: 3px solid silver;
 }
 
 .nav-left-side{
@@ -202,5 +240,50 @@ input{
 
 .nav-active a{
     color: black;
+}
+
+/** Search page styles **/
+
+.search-form-container{
+    display: grid;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.search-container h2{
+    color: black;
+}
+
+.search-form{
+    display: grid;
+}
+
+.search-form button{
+    height: 2rem;
+    background: #3185ce;
+}
+
+.search-container .search-form .fa-search{
+    color: white;
+}
+
+.search-form input{
+    width: 100%;
+    overflow: hidden;
+}
+
+#englishTitle{
+    margin-bottom: 0;
+}
+
+/** Search content area styles **/
+
+.search-container{
+    background-color: #F0F0F0;
+}
+
+.search-anime-cards-container{
+    display: grid;
+    row-gap: 20px;
 }
 
