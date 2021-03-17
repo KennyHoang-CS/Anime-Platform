@@ -134,7 +134,7 @@ def show_watch_list(user_id):
 # Routes to add anime to user's watch-list. 
 
 @app.route('/users/<int:anime_id>/add', methods=["POST"])
-def add_anime(anime_id):
+def user_add_anime(anime_id):
     """ Add an anime to user's watch list. """
 
     if not g.user:
@@ -145,10 +145,20 @@ def add_anime(anime_id):
     db.session.add(new_watch)
     db.session.commit()
 
+    return redirect(f'/users/{g.user.id}')
+
+@app.route('/users/<int:anime_id>/delete', methods=["POST"])
+def user_delete_anime(anime_id):
+    """ Delete an anime from an user's watch list. """
+
+    if not g.user:
+        flash("Access unauthorized.", "danger")
+        return redirect("/")
+
+    WatchAnime.query.filter(WatchAnime.user_id == 1, WatchAnime.anime_id == anime_id).delete()
+    db.session.commit()
     
-    return redirect('/')
-
-
+    return redirect(f'/users/{g.user.id}')
 
 ##############################################################################
 #
