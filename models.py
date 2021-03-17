@@ -31,6 +31,11 @@ class User(db.Model):
         nullable=False,
     )
 
+    watchList = db.relationship( 
+        'WatchAnime',
+        backref='users'
+    )
+
     def __repr__(self):
         return f"<User #{self.id}: {self.username}>"
 

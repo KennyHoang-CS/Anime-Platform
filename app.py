@@ -141,6 +141,12 @@ def user_add_anime(anime_id):
         flash("Access unauthorized.", "danger")
         return redirect("/")
     
+    # Check if the 'anime to be added' is already in user's watch list. 
+    animeIDs = [id.anime_id for id in list(g.user.watchList)]
+    if anime_id in animeIDs:
+        flash('This anime is already exist in your watch list.')
+        return redirect('/')
+
     new_watch = WatchAnime(user_id=g.user.id, anime_id=anime_id)
     db.session.add(new_watch)
     db.session.commit()
@@ -168,13 +174,15 @@ def user_delete_anime(anime_id):
 def search_anime():
     """ Search for specific anime. """
     form = SearchForm()
-
-    if form.validate_on_submit():
-        data = request.form['englishTitle']
-        response =  requests.get(f'{BASE_PATH}/anime?filter[text]={data}')
-        myList = processResponse(response.json(), 'search')
-        return render_template('search.html', form=form, anime_search_list=myList)
-
+    
+    try:
+        if form.validate_on_submit():
+            data = request.form['englishTitle']
+            response =  requests.get(f'{BASE_PATH}/anime?filter[text]={data}')
+            myList = processResponse(response.json(), 'search')
+            return render_template('search.html', form=form, anime_search_list=myList)
+    except (TypeError, IndexError) as e:
+        return redirect('/search')
     
     return render_template('search.html', form=form)
 
