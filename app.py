@@ -5,7 +5,7 @@ from models import connect_db, User, db, WatchAnime
 from forms import UserLoginForm, UserRegisterForm, SearchForm
 from sqlalchemy.exc import IntegrityError
 import requests
-from helpers import processResponse
+from helpers import processResponse, handleResponse2
 
 app = Flask(__name__)
 
@@ -116,7 +116,7 @@ def index():
 #
 # Routes for user's watch-list. 
 
-@app.route('/users/<int:user_id>')
+@app.route('/users/<int:user_id>', methods=["GET", "POST"])
 def show_watch_list(user_id):
     """ Show the user's anime watch list. """
 
@@ -125,7 +125,9 @@ def show_watch_list(user_id):
         return redirect("/")
 
     user = User.query.get_or_404(user_id)
-    return render_template('users/watch_list.html')
+    user_list = WatchAnime.query.filter(WatchAnime.user_id == user.id)
+    myList = handleResponse2(user_list)
+    return render_template('users/watch_list.html', user=user, myList=myList)
 
 ##############################################################################
 #
@@ -145,6 +147,8 @@ def add_anime(anime_id):
 
     
     return redirect('/')
+
+
 
 ##############################################################################
 #
