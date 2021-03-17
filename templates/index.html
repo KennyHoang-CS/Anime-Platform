@@ -3,7 +3,7 @@
     {% block content %}
     <div class="video-wrapper">
         <iframe width="100%" height="345" frameBorder="0"
-        src="https://www.youtube.com/embed/Q8bmv-14OVI?autoplay=1&mute=0">
+        src="https://www.youtube.com/embed/Q8bmv-14OVI?autoplay=0&mute=0">
         </iframe>
     </div>
 
@@ -19,9 +19,16 @@
         </div>
         <div class="anime-card-footers">
             <span class="anime-card-avg-rating"> Avg. Rating {{anime[4]}}</span>
-            <form action="/users/{{ anime[0] }}/add" method="POST">
-                <span class="add-to-watch"><button>Add to watch list</button></span>
-            </form> 
+    
+                {% if {{anime[0]}} in animeIDs: %}
+                <form action="/users/{{ anime[0] }}/delete" method="POST">
+                    <span class="remove-from-watch"><button>Remove from watch list</button></span>
+                </form> 
+                {% else %}
+                <form action="/users/{{ anime[0] }}/add" method="POST">
+                    <span class="add-to-watch"><button>Add to watch list</button></span>
+                </form>
+                {% endif %} 
         </div>
     </div> 
     {% endfor  %}

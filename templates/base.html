@@ -12,19 +12,19 @@
 </head>
 <body>
     
-    
+        <div class="test-container">
         <div class="nav-wrapper" style="background-image: url('https://i.ibb.co/GkgpX52/banner.jpg');">
+            <div class="logo-link-wrapper">
+                <a href="/">
+                    <img src="https://i.ibb.co/Hhs9y6T/site-logo.png" alt="site-logo" width="132" height="132">   
+                </a>
+            </div>
             <div class="nav-left-side">
-                <div class="logo-link-wrapper">
-                    <a href="/">
-                        <img src="https://i.ibb.co/Hhs9y6T/site-logo.png" alt="site-logo" width="132" height="132">   
-                    </a>
-                </div>
                 <div class="nav-link-wrapper active-nav-link">
                     <a href="/">Home</a>
                 </div>
                 <div class="nav-link-wrapper">
-                    <a href="/users/{{ g.user.id if g.user.id else 5 }}">View your watch list</a>
+                    <a href="/users/{{ g.user.id if g.user.id else 5 }}">Watch List</a>
                 </div>
                     <a href="/search"><i class="fas fa-search"></i></a> 
             </div>
@@ -41,7 +41,7 @@
 
     {% block content %}
     {% endblock %}
-
+</div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <script src="/static/TrendingAnimeList.js"></script>
 </body>

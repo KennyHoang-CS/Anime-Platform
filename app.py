@@ -109,7 +109,11 @@ def index():
     """ The homepage that will show the trending animes! """
     response = requests.get("https://kitsu.io/api/edge/trending/anime?limit=16")
     myList = processResponse(response.json(), "trending")
-    return render_template('index.html', anime_trending_list = myList)
+    animeIDs = []
+    if g.user:
+        animeIDs = [id.anime_id for id in list(g.user.watchList)]
+        
+    return render_template('index.html', anime_trending_list = myList, animeIDs=animeIDs)
 
 
 ##############################################################################
