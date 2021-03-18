@@ -180,12 +180,6 @@ body{
     
 }
 
-.video-wrapper{
-    
-    
-}
-
-
 /** Login Page Styles **/
 
 
@@ -236,6 +230,10 @@ label, h4{
 
 .input-field-wrapper{
     margin-bottom: 15px;
+}
+
+.text-danger{
+    color: #D8000C;
 }
 
 input{
@@ -305,6 +303,23 @@ input{
     row-gap: 20px;
 }
 }
+
+/** Flash Messages Styles **/
+.error{
+    background-repeat: no-repeat;
+    max-width: 400px;
+    padding: 15px 10px 15px 50px;
+    margin: 10px auto;
+    background-position: 10px center;
+    border: 1px solid;
+}
+
+.error {
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url('https://i.imgur.com/GnyDvKN.png');
+}
+
 
 /***************************************************************************** 
 **                      Responsive CSS medium-small
@@ -532,6 +547,10 @@ input{
     .input-field-wrapper{
         margin-bottom: 15px;
     }
+
+    .text-danger{
+        color: #D8000C;
+    }
     
     input{
         padding: 12px 20px;
@@ -599,7 +618,25 @@ input{
         display: grid;
         row-gap: 20px;
     }
+
+    .error{
+        background-repeat: no-repeat;
+        max-width: 400px;
+        padding: 15px 10px 15px 50px;
+        margin: 10px auto;
+        background-position: 10px center;
+        border: 1px solid;
     }
+
+    .error {
+    	color: #D8000C;
+    	background-color: #FFBABA;
+    	background-image: url('https://i.imgur.com/GnyDvKN.png');
+    }
+}
+
+
+
 
 /***************************************************************************** 
 **                      Responsive CSS medium-large: showing 3 anime cards
@@ -826,6 +863,10 @@ input{
     .input-field-wrapper{
         margin-bottom: 15px;
     }
+
+    .text-danger{
+        color: #D8000C;
+    }
     
     input{
         padding: 12px 20px;
@@ -893,6 +934,22 @@ input{
         display: grid;
         row-gap: 20px;
     }
+
+    .error{
+        background-repeat: no-repeat;
+        max-width: 400px;
+        padding: 15px 10px 15px 50px;
+        margin: 10px auto;
+        background-position: 10px center;
+        border: 1px solid;
+    }
+
+    .error {
+    	color: #D8000C;
+    	background-color: #FFBABA;
+    	background-image: url('https://i.imgur.com/GnyDvKN.png');
+    }
+
 }
 
 /***************************************************************************** 
@@ -1117,6 +1174,10 @@ input{
         .input-field-wrapper{
             margin-bottom: 15px;
         }
+
+        .text-danger{
+            color: #D8000C;
+        }
         
         input{
             padding: 12px 20px;
@@ -1184,4 +1245,25 @@ input{
             display: grid;
             row-gap: 20px;
         }
+
+
+    /** Flash Messages Styles **/
+    .warning{
+        color: black;    
+    }
+
+    .error{
+        background-repeat: no-repeat;
+        max-width: 400px;
+        padding: 15px 10px 15px 50px;
+        margin: 10px auto;
+        background-position: 10px center;
+        border: 1px solid;
+    }
+
+    .error {
+    	color: #D8000C;
+    	background-color: #FFBABA;
+    	background-image: url('https://i.imgur.com/GnyDvKN.png');
+    }
 }

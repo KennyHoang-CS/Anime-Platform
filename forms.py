@@ -8,8 +8,8 @@ class UserRegisterForm(FlaskForm):
 
     username = StringField('Username', validators=[DataRequired()])
     email = StringField('(Optional) Email', validators=[Optional(), Email()])
-    password = PasswordField('Password', validators=[Length(min=6)])
-    password2 = PasswordField('Confirm Password', validators=[Length(min=6)])
+    password = PasswordField('Password', validators=[DataRequired(), Length(message="Password length must be at least 6.", min=6)])
+    password2 = PasswordField('Confirm Password', validators=[DataRequired(), Length(message="Password length must be at least 6.", min=6)])
 
 class EditUserForm(FlaskForm):
     """ Form for editing users. """
@@ -25,7 +25,7 @@ class UserLoginForm(FlaskForm):
     """Login form."""
 
     username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[Length(min=6)])
+    password = PasswordField('Password', validators=[DataRequired(), Length(message="Password length must be at least 6.", min=6)])
 
 
 class SearchForm(FlaskForm):

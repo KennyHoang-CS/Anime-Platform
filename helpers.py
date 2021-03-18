@@ -1,7 +1,7 @@
 import requests
 BASE_PATH = "https://kitsu.io/api/edge"
 
-def processResponse(response, flag):
+def processResponse(response, flag, animeIDs):
     """ sadsa """
     
     myList = []
@@ -14,8 +14,11 @@ def processResponse(response, flag):
             response['data'][i]['attributes']['synopsis'],
             response['data'][i]['attributes']['coverImage']['original'],
             response['data'][i]['attributes']['averageRating'],
-            response['data'][i]['attributes']['ageRatingGuide']
+            response['data'][i]['attributes']['ageRatingGuide'],
+            test(int(response['data'][i]['id']), animeIDs)
             ))
+           # if int(response['data'][i]['id']) in animeIDs:
+            #    myList.append('user_is_watching')
     else: 
         for i in range(0, len(response)):
             myList.append((
@@ -29,7 +32,10 @@ def processResponse(response, flag):
 
     return myList
         
-    
+def test(x, animeIDs):
+    return 'user_is_watching' if x in animeIDs else 'user_not_watching'
+
+
 
 def handleResponse2(user_list):
     """ Get the anime data for user's list from external API. """

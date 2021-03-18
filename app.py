@@ -59,9 +59,10 @@ def login():
             do_login(user)
             flash(f"Hello, {user.username}!", "success")
             return redirect("/")
-
-        flash("Invalid credentials.", 'danger')
-    
+        else:
+            flash("Login credentials is invalid.", 'error')
+            return redirect('/login')
+        
     return render_template('/users/login.html', form=form)
 
 @app.route('/register', methods=["GET", "POST"]) 
@@ -76,6 +77,11 @@ def register():
     form = UserRegisterForm()
 
     if form.validate_on_submit():
+        
+        if form.password.data != form.password2.data:
+            flash('The confirmed password is incorrect.', 'error')
+            return redirect('/register')
+
         try:
             user = User.signup(
                 username=form.username.data,
@@ -108,12 +114,12 @@ def logout():
 def index():
     """ The homepage that will show the trending animes! """
     response = requests.get("https://kitsu.io/api/edge/trending/anime?limit=16")
-    myList = processResponse(response.json(), "trending")
     animeIDs = []
     if g.user:
         animeIDs = [id.anime_id for id in list(g.user.watchList)]
-        
-    return render_template('index.html', anime_trending_list = myList, animeIDs=animeIDs)
+    myList = processResponse(response.json(), "trending", animeIDs)
+    
+    return render_template('index.html', anime_trending_list = myList)
 
 
 ##############################################################################
@@ -125,8 +131,8 @@ def show_watch_list(user_id):
     """ Show the user's anime watch list. """
 
     if not g.user:
-        flash("Access unauthorized.", "danger")
-        return redirect("/")
+        flash("Login to view your watch list.", "error")
+        return redirect("/login")
 
     user = User.query.get_or_404(user_id)
     user_list = WatchAnime.query.filter(WatchAnime.user_id == user.id)
