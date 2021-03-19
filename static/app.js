@@ -24,8 +24,8 @@ var player;
     
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
-    height: '390',
-    width: '640',
+    height: '450',
+    width: '100%',
     videoId: getRandomVideoID() || "Q8bmv-14OVI",
     events: {
     'onReady': onPlayerReady,
