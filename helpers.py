@@ -15,10 +15,9 @@ def processResponse(response, flag, animeIDs):
             response['data'][i]['attributes']['coverImage']['original'],
             response['data'][i]['attributes']['averageRating'],
             response['data'][i]['attributes']['ageRatingGuide'],
-            test(int(response['data'][i]['id']), animeIDs)
+            test(int(response['data'][i]['id']), animeIDs),
+            response['data'][i]['attributes']['youtubeVideoId']
             ))
-           # if int(response['data'][i]['id']) in animeIDs:
-            #    myList.append('user_is_watching')
     else: 
         for i in range(0, len(response)):
             myList.append((
@@ -53,3 +52,7 @@ def handleResponse2(user_list):
             response['data']['attributes']['ageRatingGuide']
             ))
     return myList
+
+def getVideo():
+    """ .. """
+    return "VQGCKyvzIM4"

@@ -4,8 +4,8 @@ from flask_debugtoolbar import DebugToolbarExtension
 from models import connect_db, User, db, WatchAnime
 from forms import UserLoginForm, UserRegisterForm, SearchForm
 from sqlalchemy.exc import IntegrityError
-import requests
-from helpers import processResponse, handleResponse2
+import requests, random
+from helpers import processResponse, handleResponse2, getVideo
 
 app = Flask(__name__)
 
@@ -17,6 +17,9 @@ app.config['SQLALCHEMY_ECHO'] = True
 app.config['SECRET_KEY'] = 'chicken123'
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 debug = DebugToolbarExtension(app)
+
+app.jinja_env.globals.update(getVideo=getVideo)
+
 
 
 CURR_USER_KEY = "curr_user"
@@ -119,7 +122,11 @@ def index():
         animeIDs = [id.anime_id for id in list(g.user.watchList)]
     myList = processResponse(response.json(), "trending", animeIDs)
     
-    return render_template('index.html', anime_trending_list = myList)
+    randomVideo = myList[random.randint(0,15)][7]
+    
+    return render_template('index.html', anime_trending_list = myList, video=randomVideo)
+
+
 
 
 ##############################################################################
