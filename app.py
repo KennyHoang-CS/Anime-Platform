@@ -131,7 +131,7 @@ def show_watch_list(user_id):
     """ Show the user's anime watch list. """
 
     if not g.user:
-        flash("Login to view your watch list.", "error")
+        flash("Login is required to access your watch list.", "warning")
         return redirect("/login")
 
     user = User.query.get_or_404(user_id)
@@ -148,8 +148,8 @@ def user_add_anime(anime_id):
     """ Add an anime to user's watch list. """
 
     if not g.user:
-        flash("Access unauthorized.", "danger")
-        return redirect("/")
+        flash("Login is required to add an anime.", "warning")
+        return redirect("/login")
     
     # Check if the 'anime to be added' is already in user's watch list. 
     animeIDs = [id.anime_id for id in list(g.user.watchList)]
@@ -168,7 +168,7 @@ def user_delete_anime(anime_id):
     """ Delete an anime from an user's watch list. """
 
     if not g.user:
-        flash("Access unauthorized.", "danger")
+        flash("Access unauthorized.", "error")
         return redirect("/")
 
     WatchAnime.query.filter(WatchAnime.user_id == 1, WatchAnime.anime_id == anime_id).delete()
@@ -189,7 +189,7 @@ def search_anime():
         if form.validate_on_submit():
             data = request.form['englishTitle']
             response =  requests.get(f'{BASE_PATH}/anime?filter[text]={data}')
-            myList = processResponse(response.json(), 'search')
+            myList = processResponse(response.json(), 'search', [])
             return render_template('search.html', form=form, anime_search_list=myList)
     except (TypeError, IndexError) as e:
         return redirect('/search')

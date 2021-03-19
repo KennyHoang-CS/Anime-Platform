@@ -4,7 +4,6 @@
 
 @media only screen and (max-width: 600px){
     
-
     *, *::before, *::after{
         box-sizing: border-box;
     }
@@ -18,7 +17,7 @@
         font-family: 'Poppins', sans-serif;
     }
     
-    .test-container{
+    .general-container{
         display: grid;
         grid-template-columns: 1fr;
     }
@@ -95,6 +94,7 @@
         border: none;
         background: white;
         font-size: large;
+        outline: none;
     }
     
     .add-to-watch, button{
@@ -102,6 +102,7 @@
         color: black;
         border: none;
         font-size: large;
+        outline: none;
     }
     
     .add-to-watch button:hover{
@@ -113,7 +114,6 @@
         cursor: pointer;
         color: red;
     }
-    
     
     .anime-card-avg-rating{
         font-size: small;
@@ -135,8 +135,8 @@
     }
     
     .nav-left-side{
-       display: grid;
-       row-gap: 30px;
+        display: grid;
+        row-gap: 30px;
     }
 
     .nav-right-side .nav-link-wrapper a{
@@ -144,10 +144,6 @@
         float: inline-end;
         text-align: center;
         width: 70px;
-    }
-    
-    .nav-right-side .nav-link-wrapper a{
-       
     }
     
     .nav-wrapper > .nav-left-side > div{
@@ -170,25 +166,19 @@
         border-radius: 8px;
     }
     
-    .nav-link-wrapper:hover{
-        
-    }
-    
     .nav-link-wrapper a:hover{
         color: black;
-    }
-    
-    .active-nav-link{
-       
-    }
-    
-    .active-nav-link a{
-        color: black i !important;
+        background: rgb(204, 204, 204);
+        transition: all 0.5s;
     }
     
     .fa-search{
         color: black;
         text-decoration: none;
+    }
+
+    .fa-search:hover{
+        color: white;
     }
     
     .logo-link-wrapper a img{
@@ -196,10 +186,18 @@
         top: 0;
         left: 0;
         height: 82px;
-        
     }
     
-    /** Login Page Styles **/
+    .logo-link-wrapper a img:hover{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 82px;
+        filter: brightness(80%);
+        transition: all 0.5s;
+    }
+
+    /** Login, Register Styles **/
     
     
     input[type=submit]{
@@ -213,12 +211,17 @@
     input[type=submit]:hover {
         background: #7bafe2;
     }
-    .login-container{
+    .login-register-container{
         display: grid;
         justify-content: center;
         width: 100%;
     }
     
+    .login-register-container a:hover{
+        filter: brightness(75%);
+        transition: all 0.5s;
+    }
+
     #site-logo{
         justify-self: center;   
     }
@@ -231,18 +234,18 @@
         color: black;
     }
     
-    .login-links-wrapper{
+    .login-register-links-wrapper{
         display: flex;
         justify-content: space-evenly;
         border-bottom: 1px solid silver;
     }
     
-    .login-links-wrapper a{
+    .login-register-links-wrapper a{
         text-decoration: none;
         color: rgb(145, 139, 139);
     }
     
-    .login-links-wrapper, input, label{
+    .login-register-links-wrapper, input, label{
         margin-bottom: 25px;
         width: 400px;
     }
@@ -269,7 +272,7 @@
         padding: 20px;
     }
     
-    .login-links-wrapper a:hover{
+    .login-register-links-wrapper a:hover{
         color: black;
     }
     
@@ -298,6 +301,12 @@
         background: #3185ce;
     }
     
+    .search-form button:hover{
+        height: 2rem;
+        background: #5a8cb8;
+        transition: all 0.5s;
+    }
+
     .search-container .search-form .fa-search{
         color: white;
     }
@@ -324,7 +333,8 @@
     }
     
     /** Flash Messages Styles **/
-    .error{
+    .error, .warning{
+        list-style-type: none;
         background-repeat: no-repeat;
         max-width: 400px;
         padding: 15px 10px 15px 50px;
@@ -333,10 +343,16 @@
         border: 1px solid;
     }
     
+    .warning {
+        color: #9F6000;
+        background-color: #FEEFB3;
+        background-image: url('https://i.imgur.com/Z8q7ww7.png');
+    }
+
     .error {
-        color: #D8000C;
-        background-color: #FFBABA;
-        background-image: url('https://i.imgur.com/GnyDvKN.png');
+    	color: #D8000C;
+    	background-color: #FFBABA;
+    	background-image: url('https://i.imgur.com/GnyDvKN.png');
     }
 
 
@@ -347,197 +363,203 @@ Responsive CSS: Small devices (portrait tablets, large phones, 600px and up)
 @media only screen and (min-width: 600px){
     
 
-*, *::before, *::after{
-    box-sizing: border-box;
-}
+    *, *::before, *::after{
+        box-sizing: border-box;
+    }
 
-body{
-    margin: 0;
-    background-color: #ffffff;
-    color: #ffffff;
-    font-size: 1.25rem;
-    line-height: 1.3;
-    font-family: 'Poppins', sans-serif;
-}
+    body{
+        margin: 0;
+        background-color: #ffffff;
+        color: #ffffff;
+        font-size: 1.25rem;
+        line-height: 1.3;
+        font-family: 'Poppins', sans-serif;
+    }
 
-.test-container{
-    display: grid;
-    grid-template-columns: 1fr;
-}
+    .general-container{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
 
-.container{
-    background: #101010;
-}
+    .container{
+        background: #101010;
+    }
 
-/** Anime cards style **/
-.anime-cards-container{
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 15px;
-}
+    /** Anime cards style **/
+    .anime-cards-container{ 
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 15px;
+    }
 
-.anime-card{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 300px 1fr auto;
-    background-color: #ffffff;
-    border-radius: 10px;
-    color: #101010;
-}
+    .anime-card{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 300px 1fr auto;
+        background-color: #ffffff;
+        border-radius: 10px;
+        color: #101010;
+    }
 
-.anime-card-image{
-    grid-column: 1 / 3;
-    grid-row: 1 / 2;
-    background: no-repeat center center/cover;
-}
+    .anime-card-image{
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+        background: no-repeat center center/cover;
+    }
 
-.anime-card-content{
-    grid-column: 1 / 3;
-    grid-row: 2 / 3;
-    padding: 1.5rem;
-}
+    .anime-card-content{
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
+        padding: 1.5rem;
+    }
 
-.anime-card-title{
-    font-size: 1.75rem;
-    line-height: 1.1;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-    text-align: center;
-}
+    .anime-card-title{
+        font-size: 1.75rem;
+        line-height: 1.1;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        text-align: center;
+    }
 
-.anime-card-description{   
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 0.75rem;
-    height: 200px;
-    overflow: hidden;
-    overflow-y: scroll;
-}
+    .anime-card-description{   
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 0.75rem;
+        height: 200px;
+        overflow: hidden;
+        overflow-y: scroll;
+    }
 
-.anime-card-genre{
-    font-size: medium;
-    border-bottom: 1px solid silver;
-    margin-bottom: 10px;
-    text-align: center;
-}
+    .anime-card-genre{
+        font-size: medium;
+        border-bottom: 1px solid silver;
+        margin-bottom: 10px;
+        text-align: center;
+    }
 
-.anime-card-footers{
-    grid-column: 1 / -1;
-    display: flex;
-    justify-content: space-between;
-}
+    .anime-card-footers{
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: space-between;
+        }
 
-.add-to-watch{
-    grid-column: 2 / -1;
-}
+    .add-to-watch{
+        grid-column: 2 / -1;
+    }
 
-.remove-from-watch button{
-    text-decoration: none;
-    color: black;
-    border: none;
-    background: white;
-    font-size: large;
-}
+    .remove-from-watch button{
+        text-decoration: none;
+        color: black;
+        border: none;
+        background: white;
+        font-size: large;
+        outline: none;
+    }
 
-.add-to-watch, button{
-    background-color: white;
-    color: black;
-    border: none;
-    font-size: large;
-}
+    .add-to-watch, button{
+        background-color: white;
+        color: black;
+        border: none;
+        font-size: large;
+        outline: none;
+    }
 
-.add-to-watch button:hover{
-    cursor: pointer;
-    color: red;
-}
+    .add-to-watch button:hover{
+        cursor: pointer;
+        color: red;
+    }
 
-.remove-from-watch button:hover{
-    cursor: pointer;
-    color: red;
-}
-
-
-.anime-card-avg-rating{
-    font-size: small;
-    font-weight: 700;
-    transform: translateY(5px);
-}
+    .remove-from-watch button:hover{
+        cursor: pointer;
+        color: red;
+    }
 
 
-/** Nav Styles **/
+    .anime-card-avg-rating{
+        font-size: small;
+        font-weight: 700;
+        transform: translateY(5px);
+    }
 
-.nav-wrapper{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 80px;
-    background-color: white;
-    height: 45px;
-    border-bottom: 3px solid silver;
-    background: no-repeat center center/cover;
-    position: relative;
-}
 
-.nav-left-side{
-    display: flex;
-}
-
-.nav-right-side .nav-link-wrapper a{
-    position: absolute;
-    right: 50px;
-}
-
-.nav-wrapper > .nav-left-side > div{
-    margin-right: 20px;
-    font-size: 0.9em;
-    text-transform: uppercase;
-}
-
-.nav-link-wrapper{
-    height: 22px;
-    border-bottom: 1px solid transparent;
-    transition: border-bottom 0.5s;
-}
-
-.nav-link-wrapper a{
-    color: #8a8a8a;
-    text-decoration: none;
-    transition: color 0.5s;
-    background-color: white;
-    border-radius: 8px;
-}
-
-.nav-link-wrapper:hover{
-    border-bottom: 1px solid black;
-}
-
-.nav-link-wrapper a:hover{
-    color: black;
-}
-
-.active-nav-link{
-    border-bottom: 1px solid black;
-}
-
-.active-nav-link a{
-    color: black i !important;
-}
-
-.fa-search{
-    color: black;
-    text-decoration: none;
-}
-
-.logo-link-wrapper a img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 82px;
+    /** Nav Styles **/
     
-}
+    .nav-wrapper{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 80px;
+        background-color: white;
+        height: 45px;
+        border-bottom: 3px solid silver;
+        background: no-repeat center center/cover;
+        position: relative;
+    }
 
-/** Login Page Styles **/
+    .nav-left-side{
+        display: flex;
+    }
 
+    .nav-right-side .nav-link-wrapper a{
+        position: absolute;
+        right: 50px;
+    }
 
+    .nav-wrapper > .nav-left-side > div{
+        margin-right: 20px;
+        font-size: 0.9em;
+        text-transform: uppercase;
+    }
+
+    .nav-link-wrapper{
+        height: 22px;
+        border-bottom: 1px solid transparent;
+        transition: border-bottom 0.5s;
+    }
+
+    .nav-link-wrapper a{
+        color: #8a8a8a;
+        text-decoration: none;
+        transition: color 0.5s;
+        background-color: white;
+        border-radius: 8px;
+    }   
+
+    .nav-link-wrapper a:hover{
+        color: black;
+        background: rgb(204, 204, 204);
+        transition: all 0.5s;
+    }
+
+    .active-nav-link a{
+        color: black i !important;
+    }
+
+    .fa-search{
+        color: black;
+        text-decoration: none;
+    }
+
+    .fa-search:hover{
+        color: white;
+    }
+
+    .logo-link-wrapper a img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 82px;
+    }
+
+    .logo-link-wrapper a img:hover{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 82px;
+        filter: brightness(80%);
+        transition: all 0.5s;
+    }
+
+/** Login Register Styles **/
 input[type=submit]{
     background: #1E90FF;
     color: white;
@@ -549,10 +571,15 @@ input[type=submit]{
 input[type=submit]:hover {
     background: #7bafe2;
 }
-.login-container{
+.login-register-container{
     display: grid;
     justify-content: center;
     width: 100%;
+}
+
+.login-register-container a:hover{
+    filter: brightness(75%);
+    transition: all 0.5s;
 }
 
 #site-logo{
@@ -567,18 +594,18 @@ label, h4{
     color: black;
 }
 
-.login-links-wrapper{
+.login-register-links-wrapper{
     display: flex;
     justify-content: space-evenly;
     border-bottom: 1px solid silver;
 }
 
-.login-links-wrapper a{
+.login-register-links-wrapper a{
     text-decoration: none;
     color: rgb(145, 139, 139);
 }
 
-.login-links-wrapper, input, label{
+.login-register-links-wrapper, input, label{
     margin-bottom: 25px;
     width: 400px;
 }
@@ -605,7 +632,7 @@ input{
     padding: 20px;
 }
 
-.login-links-wrapper a:hover{
+.login-register-links-wrapper a:hover{
     color: black;
 }
 
@@ -634,6 +661,12 @@ input{
     background: #3185ce;
 }
 
+.search-form button:hover{
+    height: 2rem;
+    background: #5a8cb8;
+    transition: all 0.5s;
+}
+
 .search-container .search-form .fa-search{
     color: white;
 }
@@ -657,10 +690,10 @@ input{
     display: grid;
     row-gap: 20px;
 }
-}
 
 /** Flash Messages Styles **/
-.error{
+.error, .warning{
+    list-style-type: none;
     background-repeat: no-repeat;
     max-width: 400px;
     padding: 15px 10px 15px 50px;
@@ -669,11 +702,20 @@ input{
     border: 1px solid;
 }
 
+.warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+    background-image: url('https://i.imgur.com/Z8q7ww7.png');
+}
+
 .error {
     color: #D8000C;
     background-color: #FFBABA;
     background-image: url('https://i.imgur.com/GnyDvKN.png');
 }
+
+}
+
 
 
 /***************************************************************************** 
@@ -768,12 +810,28 @@ input{
         border: none;
         background: white;
         font-size: large;
+        outline: none;
     }
     
+    .remove-from-watch button{
+        text-decoration: none;
+        color: black;
+        border: none;
+        background: white;
+        font-size: large;
+        outline: none;
+    }
+
     .add-to-watch button:hover{
         cursor: pointer;
         color: red;
     }
+
+    .remove-from-watch button:hover{
+        cursor: pointer;
+        color: red;
+    }
+    
     
     .anime-card-avg-rating{
         font-size: small;
@@ -819,16 +877,10 @@ input{
         border-radius: 8px;
     }
     
-    .nav-link-wrapper:hover{
-        border-bottom: 1px solid black;
-    }
-    
     .nav-link-wrapper a:hover{
         color: black;
-    }
-    
-    .active-nav-link{
-        border-bottom: 1px solid black;
+        background: rgb(204, 204, 204);
+        transition: all 0.5s;
     }
     
     .active-nav-link a{
@@ -839,6 +891,10 @@ input{
         color: black;
         text-decoration: none;
     }
+
+    .fa-search:hover{
+        color: white;
+    }
    
     .logo-link-wrapper a img{
         position: absolute;
@@ -847,8 +903,15 @@ input{
         margin-left: 20px;
     }
     
+    .logo-link-wrapper a img:hover{
+        position: absolute;
+        height: 100px;
+        margin-left: 20px;
+        filter: brightness(80%);
+        transition: all 0.5s;
+    }
 
-    /** Login Page Styles **/
+    /** Login Register Styles **/
 
     input[type=submit]{
         background: #1E90FF;
@@ -861,10 +924,15 @@ input{
     input[type=submit]:hover {
         background: #7bafe2;
     }
-    .login-container{
+    .login-register-container{
         display: grid;
         justify-content: center;
         width: 100%;
+    }
+
+    .login-register-container a:hover{
+        filter: brightness(75%);
+        transition: all 0.5s;
     }
     
     #site-logo{
@@ -879,18 +947,18 @@ input{
         color: black;
     }
     
-    .login-links-wrapper{
+    .login-register-links-wrapper{
         display: flex;
         justify-content: space-evenly;
         border-bottom: 1px solid silver;
     }
     
-    .login-links-wrapper a{
+    .login-register-links-wrapper a{
         text-decoration: none;
         color: rgb(145, 139, 139);
     }
     
-    .login-links-wrapper, input, label{
+    .login-register-links-wrapper, input, label{
         margin-bottom: 25px;
         width: 400px;
     }
@@ -917,7 +985,7 @@ input{
         padding: 20px;
     }
     
-    .login-links-wrapper a:hover{
+    .login-register-links-wrapper a:hover{
         color: black;
     }
     
@@ -945,6 +1013,12 @@ input{
         height: 2rem;
         background: #3185ce;
     }
+
+    .search-form button:hover{
+        height: 2rem;
+        background: #5a8cb8;
+        transition: all 0.5s;
+    }
     
     .search-container .search-form .fa-search{
         color: white;
@@ -970,13 +1044,21 @@ input{
         row-gap: 20px;
     }
 
-    .error{
+    /** Flash message styles **/
+    .error, .warning{
+        list-style-type: none;
         background-repeat: no-repeat;
         max-width: 400px;
         padding: 15px 10px 15px 50px;
         margin: 10px auto;
         background-position: 10px center;
         border: 1px solid;
+    }
+    
+    .warning {
+        color: #9F6000;
+        background-color: #FEEFB3;
+        background-image: url('https://i.imgur.com/Z8q7ww7.png');
     }
 
     .error {
@@ -1085,8 +1167,22 @@ input{
         background: white;
         font-size: large;
     }
+
+    .remove-from-watch button{
+        text-decoration: none;
+        color: black;
+        border: none;
+        background: white;
+        font-size: large;
+        outline: none;
+    }
     
     .add-to-watch button:hover{
+        cursor: pointer;
+        color: red;
+    }
+
+    .remove-from-watch button:hover{
         cursor: pointer;
         color: red;
     }
@@ -1137,16 +1233,10 @@ input{
         border-radius: 8px;
     }
     
-    .nav-link-wrapper:hover{
-        border-bottom: 1px solid black;
-    }
-    
     .nav-link-wrapper a:hover{
         color: black;
-    }
-    
-    .active-nav-link{
-        border-bottom: 1px solid black;
+        background: rgb(204, 204, 204);
+        transition: all 0.5s;
     }
     
     .active-nav-link a{
@@ -1157,14 +1247,26 @@ input{
         color: black;
         text-decoration: none;
     }
+
+    .fa-search:hover{
+        color: white;
+    }
     
     .logo-link-wrapper a img{
         position: absolute;
         height: 105px;
         margin-left: 50px;
     }
+
+    .logo-link-wrapper a img:hover{
+        position: absolute;
+        height: 105px;
+        margin-left: 50px;
+        filter: brightness(80%);
+        transition: all 0.5s;
+    }
     
-    /** Login Page Styles **/
+    /** Login Register Styles **/
     
     input[type=submit]{
         background: #1E90FF;
@@ -1177,12 +1279,17 @@ input{
     input[type=submit]:hover {
         background: #7bafe2;
     }
-    .login-container{
+    .login-register-container{
         display: grid;
         justify-content: center;
         width: 100%;
     }
     
+    .login-register-container a:hover{
+        filter: brightness(75%);
+        transition: all 0.5s;
+    }
+
     #site-logo{
         justify-self: center;   
     }
@@ -1195,18 +1302,18 @@ input{
         color: black;
     }
     
-    .login-links-wrapper{
+    .login-register-links-wrapper{
         display: flex;
         justify-content: space-evenly;
         border-bottom: 1px solid silver;
     }
     
-    .login-links-wrapper a{
+    .login-register-links-wrapper a{
         text-decoration: none;
         color: rgb(145, 139, 139);
     }
     
-    .login-links-wrapper, input, label{
+    .login-register-links-wrapper, input, label{
         margin-bottom: 25px;
         width: 400px;
     }
@@ -1233,7 +1340,7 @@ input{
         padding: 20px;
     }
     
-    .login-links-wrapper a:hover{
+    .login-register-links-wrapper a:hover{
         color: black;
     }
     
@@ -1261,6 +1368,12 @@ input{
         height: 2rem;
         background: #3185ce;
     }
+
+    .search-form button:hover{
+        height: 2rem;
+        background: #5a8cb8;
+        transition: all 0.5s;
+    }
     
     .search-container .search-form .fa-search{
         color: white;
@@ -1286,20 +1399,28 @@ input{
         row-gap: 20px;
     }
 
-    .error{
-        background-repeat: no-repeat;
-        max-width: 400px;
-        padding: 15px 10px 15px 50px;
-        margin: 10px auto;
-        background-position: 10px center;
-        border: 1px solid;
-    }
+   /** Flash message styles **/
+   .error, .warning{
+    list-style-type: none;
+    background-repeat: no-repeat;
+    max-width: 400px;
+    padding: 15px 10px 15px 50px;
+    margin: 10px auto;
+    background-position: 10px center;
+    border: 1px solid;
+}
 
-    .error {
-    	color: #D8000C;
-    	background-color: #FFBABA;
-    	background-image: url('https://i.imgur.com/GnyDvKN.png');
-    }
+.warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+    background-image: url('https://i.imgur.com/Z8q7ww7.png');
+}
+
+.error {
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url('https://i.imgur.com/GnyDvKN.png');
+}
 
 }
 
@@ -1308,302 +1429,331 @@ Responsive CSS large: Extra large devices (large laptops and desktops, 1200px an
 ******************************************************************************/
 
 @media only screen and (min-width: 1200px){
+
+    *, *::before, *::after{
+        box-sizing: border-box;
+    }
     
-        *, *::before, *::after{
-            box-sizing: border-box;
-        }
-        
-        body{
-            margin: 0;
-            background-color: #ffffff;
-            color: #ffffff;
-            font-size: 1.25rem;
-            line-height: 1.3;
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        .container{
-            background: #101010;
-        }
-        
-        /** Anime cards style **/
-        .anime-cards-container{
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-        }
-        
-        .anime-card{
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: 300px 1fr auto;
-            background-color: #ffffff;
-            border-radius: 10px;
-            color: #101010;
-        }
-        
-        .anime-card-image{
-            grid-column: 1 / 3;
-            grid-row: 1 / 2;
-            background: no-repeat center center/cover;
-        }
-        
-        .anime-card-content{
-            grid-column: 1 / 3;
-            grid-row: 2 / 3;
-            padding: 1.5rem;
-        }
-        
-        .anime-card-title{
-            font-size: 1.75rem;
-            line-height: 1.1;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            text-align: center;
-        }
-        
-        .anime-card-description{   
-            font-size: 1rem;
-            line-height: 1.5;
-            margin-bottom: 0.75rem;
-            height: 200px;
-            overflow: hidden;
-            overflow-y: scroll;
-        }
-        
-        .anime-card-genre{
-            font-size: medium;
-            border-bottom: 1px solid silver;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        
-        .anime-card-footers{
-            grid-column: 1 / -1;
-            display: flex;
-            justify-content: space-between;
-        }
-        
-        .add-to-watch{
-            grid-column: 2 / -1;
-        }
-        
-        .add-to-watch button{
-            text-decoration: none;
-            color: black;
-            border: none;
-            background: white;
-            font-size: large;
-        }
-        
-        .add-to-watch button:hover{
-            cursor: pointer;
-            color: red;
-        }
-        
-        .anime-card-avg-rating{
-            font-size: small;
-            font-weight: 700;
-            transform: translateY(5px);
-        }
-        
-        
-        /** Nav Styles **/
-        
-        .nav-wrapper{
-            display: flex;
-            justify-content: space-between;
-            padding: 50px;
-            background-color: white;
-            height: 45px;
-            border-bottom: 3px solid silver;
-            background: no-repeat center center/cover;
-            position: relative;
-        }
-        
-        .nav-left-side{
-            display: flex;
-            position: absolute;
-            margin-left: 200px;
-        }
-        
-        .nav-wrapper > .nav-left-side > div{
-            margin-right: 20px;
-            font-size: 0.9em;
-            text-transform: uppercase;
-        }
-        
-        .nav-link-wrapper{
-            height: 22px;
-            border-bottom: 1px solid transparent;
-            transition: border-bottom 0.5s;
-        }
-        
-        .nav-link-wrapper a{
-            color: #8a8a8a;
-            text-decoration: none;
-            transition: color 0.5s;
-            background-color: white;
-            border-radius: 8px;
-        }
-        
-        .nav-link-wrapper:hover{
-            border-bottom: 1px solid black;
-        }
-        
-        .nav-link-wrapper a:hover{
-            color: black;
-        }
-        
-        .active-nav-link{
-            border-bottom: 1px solid black;
-        }
-        
-        .active-nav-link a{
-            color: black i !important;
-        }
-        
-        .fa-search{
-            color: black;
-            text-decoration: none;
-        }
-        
-        .logo-link-wrapper a img{
-            position: absolute;
-            height: 105px;
-            margin-left: 50px;
-        }
+    body{
+        margin: 0;
+        background-color: #ffffff;
+        color: #ffffff;
+        font-size: 1.25rem;
+        line-height: 1.3;
+        font-family: 'Poppins', sans-serif;
+    }
     
-        /** Login Page Styles **/
-        
-        
-        input[type=submit]{
-            background: #1E90FF;
-            color: white;
-            padding: 14px 20px;
-            border: none;
-            cursor: pointer;
-        }
-        
-        input[type=submit]:hover {
-            background: #7bafe2;
-        }
-        .login-container{
-            display: grid;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        #site-logo{
-            justify-self: center;   
-        }
-        
-        h4{
-            font-weight: 800;
-        }
-        
-        label, h4{
-            color: black;
-        }
-        
-        .login-links-wrapper{
-            display: flex;
-            justify-content: space-evenly;
-            border-bottom: 1px solid silver;
-        }
-        
-        .login-links-wrapper a{
-            text-decoration: none;
-            color: rgb(145, 139, 139);
-        }
-        
-        .login-links-wrapper, input, label{
-            margin-bottom: 25px;
-            width: 400px;
-        }
-        
-        .input-field-wrapper{
-            margin-bottom: 15px;
-        }
-
-        .text-danger{
-            color: #D8000C;
-        }
-        
-        input{
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        
-        .form-container{
-            background: rgb(248, 248, 248);
-            padding: 20px;
-        }
-        
-        .login-links-wrapper a:hover{
-            color: black;
-        }
-        
-        .nav-active a{
-            color: black;
-        }
-        
-        /** Search page styles **/
-        
-        .search-form-container{
-            display: grid;
-            justify-content: center;
-            margin-bottom: 60px;
-        }
-        
-        .search-container h2{
-            color: black;
-        }
-        
-        .search-form{
-            display: grid;
-        }
-        
-        .search-form button{
-            height: 2rem;
-            background: #3185ce;
-        }
-        
-        .search-container .search-form .fa-search{
-            color: white;
-        }
-        
-        .search-form input{
-            width: 100%;
-            overflow: hidden;
-        }
-        
-        #englishTitle{
-            margin-bottom: 0;
-        }
-        
-        /** Search content area styles **/
-        
-        .search-container{
-            background-color: #F0F0F0;
-        }
-        
-        .search-anime-cards-container{
-            display: grid;
-            row-gap: 20px;
-        }
-
-
-    /** Flash Messages Styles **/
-    .warning{
-        color: black;    
+    .container{
+        background: #101010;
+    }
+    
+    /** Anime cards style **/
+    .anime-cards-container{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+    }
+    
+    .anime-card{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 300px 1fr auto;
+        background-color: #ffffff;
+        border-radius: 10px;
+        color: #101010;
+    }
+    
+    .anime-card-image{
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+        background: no-repeat center center/cover;
+    }
+    
+    .anime-card-content{
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
+        padding: 1.5rem;
+    }
+    
+    .anime-card-title{
+        font-size: 1.75rem;
+        line-height: 1.1;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        text-align: center;
+    }
+    
+    .anime-card-description{   
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 0.75rem;
+        height: 200px;
+        overflow: hidden;
+        overflow-y: scroll;
+    }
+    
+    .anime-card-genre{
+        font-size: medium;
+        border-bottom: 1px solid silver;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    
+    .anime-card-footers{
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .add-to-watch{
+        grid-column: 2 / -1;
+    }
+    
+    .add-to-watch button{
+        text-decoration: none;
+        color: black;
+        border: none;
+        background: white;
+        font-size: large;
+        outline: none;
     }
 
-    .error{
+    .remove-from-watch button{
+        text-decoration: none;
+        color: black;
+        border: none;
+        background: white;
+        font-size: large;
+        outline: none;
+    }
+    
+    .add-to-watch button:hover{
+        cursor: pointer;
+        color: red;
+    }
+
+    .remove-from-watch button:hover{
+        cursor: pointer;
+        color: red;
+    }
+    
+    .anime-card-avg-rating{
+        font-size: small;
+        font-weight: 700;
+        transform: translateY(5px);
+    }
+    
+    
+    /** Nav Styles **/
+    
+    .nav-wrapper{
+        display: flex;
+        justify-content: space-between;
+        padding: 50px;
+        background-color: white;
+        height: 45px;
+        border-bottom: 3px solid silver;
+        background: no-repeat center center/cover;
+        position: relative;
+    }
+    
+    .nav-left-side{
+        display: flex;
+        position: absolute;
+        margin-left: 200px;
+    }
+    
+    .nav-wrapper > .nav-left-side > div{
+        margin-right: 20px;
+        font-size: 0.9em;
+        text-transform: uppercase;
+    }
+    
+    .nav-link-wrapper{
+        height: 22px;
+        border-bottom: 1px solid transparent;
+        transition: border-bottom 0.5s;
+    }
+    
+    .nav-link-wrapper a{
+        color: #8a8a8a;
+        text-decoration: none;
+        transition: color 0.5s;
+        background-color: white;
+        border-radius: 8px;
+    }
+    
+    .nav-link-wrapper a:hover{
+        color: black;
+        background: rgb(204, 204, 204);
+        transition: all 0.5s;
+    }
+    
+
+    .active-nav-link a{
+        color: black i !important;
+    }
+    
+    .fa-search{
+        color: black;
+        text-decoration: none;
+    }
+
+    .fa-search:hover{
+        color: white;
+    }
+    
+    .logo-link-wrapper a img{
+        position: absolute;
+        height: 105px;
+        margin-left: 50px;
+    }
+
+    .logo-link-wrapper a img:hover{
+        position: absolute;
+        height: 105px;
+        margin-left: 50px;
+        filter: brightness(80%);
+        transition: all 0.5s;
+    }
+
+    /** Login Register Styles **/
+    
+    
+    input[type=submit]{
+        background: #1E90FF;
+        color: white;
+        padding: 14px 20px;
+        border: none;
+        cursor: pointer;
+    }
+    
+    input[type=submit]:hover {
+        background: #7bafe2;
+    }
+    .login-register-container{
+        display: grid;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .login-register-container a:hover{
+        filter: brightness(75%);
+        transition: all 0.5s;
+    }
+    
+    #site-logo{
+        justify-self: center;   
+    }
+    
+    h4{
+        font-weight: 800;
+    }
+    
+    label, h4{
+        color: black;
+    }
+    
+    .login-register-links-wrapper{
+        display: flex;
+        justify-content: space-evenly;
+        border-bottom: 1px solid silver;
+    }
+    
+    .login-register-links-wrapper a{
+        text-decoration: none;
+        color: rgb(145, 139, 139);
+    }
+    
+    .login-register-links-wrapper, input, label{
+        margin-bottom: 25px;
+        width: 400px;
+    }
+    
+    .input-field-wrapper{
+        margin-bottom: 15px;
+    }
+
+    .text-danger{
+        color: #D8000C;
+    }
+    
+    input{
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    
+    .form-container{
+        background: rgb(248, 248, 248);
+        padding: 20px;
+    }
+    
+    .login-register-links-wrapper a:hover{
+        color: black;
+    }
+    
+    .nav-active a{
+        color: black;
+    }
+    
+    /** Search page styles **/
+    
+    .search-form-container{
+        display: grid;
+        justify-content: center;
+        margin-bottom: 60px;
+    }
+    
+    .search-container h2{
+        color: black;
+    }
+    
+    .search-form{
+        display: grid;
+    }
+    
+    .search-form button{
+        height: 2rem;
+        background: #3185ce;
+    }
+
+    .search-form button:hover{
+        height: 2rem;
+        background: #5a8cb8;
+        transition: all 0.5s;
+    }
+    
+    .search-container .search-form .fa-search{
+        color: white;
+    }
+    
+    .search-form input{
+        width: 100%;
+        overflow: hidden;
+    }
+    
+    #englishTitle{
+        margin-bottom: 0;
+    }
+    
+    /** Search content area styles **/
+    
+    .search-container{
+        background-color: #F0F0F0;
+    }
+    
+    .search-anime-cards-container{
+        display: grid;
+        row-gap: 20px;
+    }
+
+    /** Flash Messages Styles **/
+    .error, .warning{
+        list-style-type: none;
         background-repeat: no-repeat;
         max-width: 400px;
         padding: 15px 10px 15px 50px;
@@ -1612,9 +1762,15 @@ Responsive CSS large: Extra large devices (large laptops and desktops, 1200px an
         border: 1px solid;
     }
 
+    .warning {
+        color: #9F6000;
+        background-color: #FEEFB3;
+        background-image: url('https://i.imgur.com/Z8q7ww7.png');
+    }
+
     .error {
-    	color: #D8000C;
-    	background-color: #FFBABA;
-    	background-image: url('https://i.imgur.com/GnyDvKN.png');
+        color: #D8000C;
+        background-color: #FFBABA;
+        background-image: url('https://i.imgur.com/GnyDvKN.png');
     }
 }
