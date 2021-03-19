@@ -1,11 +1,11 @@
 
-from flask import Flask, render_template, request, flash, redirect, session, g
+from flask import Flask, render_template, request, flash, redirect, session, g, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
 from models import connect_db, User, db, WatchAnime
 from forms import UserLoginForm, UserRegisterForm, SearchForm
 from sqlalchemy.exc import IntegrityError
 import requests, random
-from helpers import processResponse, handleResponse2, getVideo
+from helpers import processResponse, handleResponse2, getVideo, videoIDs
 
 app = Flask(__name__)
 
@@ -116,16 +116,25 @@ def logout():
 @app.route('/')
 def index():
     """ The homepage that will show the trending animes! """
+    
     response = requests.get("https://kitsu.io/api/edge/trending/anime?limit=16")
     animeIDs = []
     if g.user:
         animeIDs = [id.anime_id for id in list(g.user.watchList)]
     myList = processResponse(response.json(), "trending", animeIDs)
-    
-    randomVideo = myList[random.randint(0,15)][7]
-    
-    return render_template('index.html', anime_trending_list = myList, video=randomVideo)
 
+
+    return render_template('index.html', anime_trending_list = myList)
+
+@app.route('/api/data')
+def getVideoIDs():
+    """ sads """
+    return jsonify(videoIDs)
+
+@app.route('/api/random')
+def randomVideo():
+    print("API RANDOM CALLED")
+    return videoIDs[random.randint(0,16)]
 
 
 

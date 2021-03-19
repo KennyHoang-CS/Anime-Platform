@@ -1,11 +1,12 @@
 import requests
 BASE_PATH = "https://kitsu.io/api/edge"
+videoIDs = []
 
 def processResponse(response, flag, animeIDs):
     """ sadsa """
     
     myList = []
-
+    
     if flag == 'trending': 
         for i in range(0, 16):
             myList.append((
@@ -16,7 +17,7 @@ def processResponse(response, flag, animeIDs):
             response['data'][i]['attributes']['averageRating'],
             response['data'][i]['attributes']['ageRatingGuide'],
             test(int(response['data'][i]['id']), animeIDs),
-            response['data'][i]['attributes']['youtubeVideoId']
+            videoIDs.append(response['data'][i]['attributes']['youtubeVideoId'])
             ))
     else: 
         for i in range(0, len(response)):
@@ -28,6 +29,7 @@ def processResponse(response, flag, animeIDs):
             response['data'][i]['attributes']['averageRating'],
             response['data'][i]['attributes']['ageRatingGuide']
             ))
+
 
     return myList
         
@@ -55,4 +57,4 @@ def handleResponse2(user_list):
 
 def getVideo():
     """ .. """
-    return "VQGCKyvzIM4"
+    return "http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1"
