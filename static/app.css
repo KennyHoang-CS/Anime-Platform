@@ -1,565 +1,190 @@
-/***************************************************************************** 
-**        Responsive CSS: Extra small devices (phones, 600px and down)
-******************************************************************************/
+/** General Styles **/
 
-@media only screen and (max-width: 600px){
-    
-    *, *::before, *::after{
-        box-sizing: border-box;
-    }
-    
-    body{
-        margin: 0;
-        background-color: #ffffff;
-        color: #ffffff;
-        font-size: 1.25rem;
-        line-height: 1.3;
-        font-family: 'Poppins', sans-serif;
-    }
-    
-    .general-container{
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-    
-    .container{
-        background: #101010;
-    }
-    
-    /** Anime cards style **/
-    .anime-cards-container{
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        gap: 15px;
-    }
-    
-    .anime-card{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 300px 1fr auto;
-        background-color: #ffffff;
-        border-radius: 10px;
-        color: #101010;
-    }
-    
-    .anime-card-image{
-        grid-column: 1 / 3;
-        grid-row: 1 / 2;
-        background: no-repeat center center/cover;
-    }
-    
-    .anime-card-content{
-        grid-column: 1 / 3;
-        grid-row: 2 / 3;
-        padding: 1.5rem;
-    }
-    
-    .anime-card-title{
-        font-size: 1.75rem;
-        line-height: 1.1;
-        font-weight: 700;
-        margin-bottom: 0.75rem;
-        text-align: center;
-    }
-    
-    .anime-card-description{   
-        font-size: 1rem;
-        line-height: 1.5;
-        margin-bottom: 0.75rem;
-        height: 200px;
-        overflow: hidden;
-        overflow-y: scroll;
-    }
-    
-    .anime-card-genre{
-        font-size: medium;
-        border-bottom: 1px solid silver;
-        margin-bottom: 10px;
-        text-align: center;
-    }
-    
-    .anime-card-footers{
-        grid-column: 1 / -1;
-        display: flex;
-        justify-content: space-between;
-    }
-    
-    .add-to-watch{
-        grid-column: 2 / -1;
-    }
-    
-    .remove-from-watch button{
-        text-decoration: none;
-        color: black;
-        border: none;
-        background: white;
-        font-size: large;
-        outline: none;
-    }
-    
-    .add-to-watch, button{
-        background-color: white;
-        color: black;
-        border: none;
-        font-size: large;
-        outline: none;
-    }
-    
-    .add-to-watch button:hover{
-        cursor: pointer;
-        color: red;
-    }
-    
-    .remove-from-watch button:hover{
-        cursor: pointer;
-        color: red;
-    }
-    
-    .anime-card-avg-rating{
-        font-size: small;
-        font-weight: 700;
-        transform: translateY(5px);
-    }
-    
-    
-    /** Nav Styles **/
-    
-    .nav-wrapper{
-        padding: 120px;
-        display: flex;
-        flex-wrap: wrap;
-        padding-left: 0;
-        justify-content: space-between;
-        background: no-repeat center center/cover;
-        position: relative;
-    }
-    
-    .nav-left-side{
-        display: grid;
-        row-gap: 30px;
-    }
+*, *::before, *::after{
+    box-sizing: border-box;
+}
 
-    .nav-right-side .nav-link-wrapper a{
-        position: absolute;
-        float: inline-end;
-        text-align: center;
-        width: 70px;
-    }
-    
-    .nav-wrapper > .nav-left-side > div{
-        margin-right: 20px;
-        font-size: 0.9em;
-        text-transform: uppercase;
-    }
-    
-    .nav-link-wrapper{
-        height: 22px;
-        border-bottom: 1px solid transparent;
-        transition: border-bottom 0.5s;
-    }
-    
-    .nav-link-wrapper a{
-        color: #8a8a8a;
-        text-decoration: none;
-        transition: color 0.5s;
-        background-color: white;
-        border-radius: 8px;
-    }
-    
-    .nav-link-wrapper a:hover{
-        color: black;
-        background: rgb(204, 204, 204);
-        transition: all 0.5s;
-    }
-    
-    .fa-search{
-        color: black;
-        text-decoration: none;
-    }
+body{
+    margin: 0;
+    background-color: #ffffff;
+    color: #ffffff;
+    font-size: 1.25rem;
+    line-height: 1.3;
+    font-family: 'Poppins', sans-serif;
+}
 
-    .fa-search:hover{
-        color: white;
-    }
-    
-    .logo-link-wrapper a img{
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 82px;
-    }
-    
-    .logo-link-wrapper a img:hover{
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 82px;
-        filter: brightness(80%);
-        transition: all 0.5s;
-    }
+.container{
+    background: #101010;
+}
 
-    /** Login, Register Styles **/
-    
-    
-    input[type=submit]{
-        background: #1E90FF;
-        color: white;
-        padding: 14px 20px;
-        border: none;
-        cursor: pointer;
-    }
-    
-    input[type=submit]:hover {
-        background: #7bafe2;
-    }
-    .login-register-container{
-        display: grid;
-        justify-content: center;
-        width: 100%;
-    }
-    
-    .login-register-container a:hover{
-        filter: brightness(75%);
-        transition: all 0.5s;
-    }
+/** Anime cards style **/
 
-    #site-logo{
-        justify-self: center;   
-    }
-    
-    h4{
-        font-weight: 800;
-    }
-    
-    label, h4{
-        color: black;
-    }
-    
-    .login-register-links-wrapper{
-        display: flex;
-        justify-content: space-evenly;
-        border-bottom: 1px solid silver;
-    }
-    
-    .login-register-links-wrapper a{
-        text-decoration: none;
-        color: rgb(145, 139, 139);
-    }
-    
-    .login-register-links-wrapper, input, label{
-        margin-bottom: 25px;
-        width: 400px;
-    }
-    
-    .input-field-wrapper{
-        margin-bottom: 15px;
-    }
-    
-    .text-danger{
-        color: #D8000C;
-    }
-    
-    input{
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
-    
-    .form-container{
-        background: rgb(248, 248, 248);
-        padding: 20px;
-    }
-    
-    .login-register-links-wrapper a:hover{
-        color: black;
-    }
-    
-    .nav-active a{
-        color: black;
-    }
-    
-    /** Search page styles **/
-    
-    .search-form-container{
-        display: grid;
-        justify-content: center;
-        margin-bottom: 60px;
-    }
-    
-    .search-container h2{
-        color: black;
-    }
-    
-    .search-form{
-        display: grid;
-    }
-    
-    .search-form button{
-        height: 2rem;
-        background: #3185ce;
-    }
-    
-    .search-form button:hover{
-        height: 2rem;
-        background: #5a8cb8;
-        transition: all 0.5s;
-    }
+.anime-card{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 300px 1fr auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    color: #101010;
+}
 
-    .search-container .search-form .fa-search{
-        color: white;
-    }
-    
-    .search-form input{
-        width: 100%;
-        overflow: hidden;
-    }
-    
-    #englishTitle{
-        margin-bottom: 0;
-    }
-    
-    /** Search content area styles **/
-    
-    .search-container{
-        background-color: #F0F0F0;
-    }
-    
-    .search-anime-cards-container{
-        display: grid;
-        row-gap: 20px;
-    }
-    }
-    
-    /** Flash Messages Styles **/
-    .error, .warning{
-        list-style-type: none;
-        background-repeat: no-repeat;
-        max-width: 400px;
-        padding: 15px 10px 15px 50px;
-        margin: 10px auto;
-        background-position: 10px center;
-        border: 1px solid;
-    }
-    
-    .warning {
-        color: #9F6000;
-        background-color: #FEEFB3;
-        background-image: url('https://i.imgur.com/Z8q7ww7.png');
-    }
+.anime-card-image{
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    background: no-repeat center center/cover;
+}
 
-    .error {
-    	color: #D8000C;
-    	background-color: #FFBABA;
-    	background-image: url('https://i.imgur.com/GnyDvKN.png');
-    }
+.anime-card-content{
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+    padding: 1.5rem;
+}
+
+.anime-card-title{
+    font-size: 1.75rem;
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    text-align: center;
+}
+
+.anime-card-description{   
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+    height: 200px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.anime-card-genre{
+    font-size: medium;
+    border-bottom: 1px solid silver;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.anime-card-footers{
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-to-watch{
+    grid-column: 2 / -1;
+}
+
+.add-to-watch button{
+    text-decoration: none;
+    color: black;
+    border: none;
+    background: white;
+    font-size: large;
+    outline: none;
+}
+
+.remove-from-watch button{
+    text-decoration: none;
+    color: black;
+    border: none;
+    background: white;
+    font-size: large;
+    outline: none;
+}
+
+.add-to-watch button:hover{
+    cursor: pointer;
+    color: red;
+}
+
+.remove-from-watch button:hover{
+    cursor: pointer;
+    color: red;
+}
+
+.anime-card-avg-rating{
+    font-size: small;
+    font-weight: 700;
+    transform: translateY(5px);
+}
 
 
-/***************************************************************************** 
-Responsive CSS: Small devices (portrait tablets, large phones, 600px and up)
-******************************************************************************/
+/** Nav Styles **/
 
-@media only screen and (min-width: 600px){
-    
+.nav-wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+    background-color: white;
+    height: 45px;
+    border-bottom: 3px solid silver;
+    background: no-repeat center center/cover;
+    position: relative;
+}
 
-    *, *::before, *::after{
-        box-sizing: border-box;
-    }
+.nav-left-side{
+    display: flex;
+}
 
-    body{
-        margin: 0;
-        background-color: #ffffff;
-        color: #ffffff;
-        font-size: 1.25rem;
-        line-height: 1.3;
-        font-family: 'Poppins', sans-serif;
-    }
+.nav-wrapper > .nav-left-side > div{
+    margin-right: 20px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
 
-    .general-container{
-        display: grid;
-        grid-template-columns: 1fr;
-    }
+.nav-link-wrapper{
+    height: 22px;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.5s;
+}
 
-    .container{
-        background: #101010;
-    }
+.nav-link-wrapper a{
+    color: #8a8a8a;
+    text-decoration: none;
+    transition: color 0.5s;
+    background-color: white;
+    border-radius: 8px;
+}
 
-    /** Anime cards style **/
-    .anime-cards-container{ 
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        gap: 15px;
-    }
+.nav-link-wrapper a:hover{
+    color: black;
+    background: rgb(204, 204, 204);
+    transition: all 0.5s;
+}
 
-    .anime-card{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 300px 1fr auto;
-        background-color: #ffffff;
-        border-radius: 10px;
-        color: #101010;
-    }
+.active-nav-link a{
+    color: black i !important;
+}
 
-    .anime-card-image{
-        grid-column: 1 / 3;
-        grid-row: 1 / 2;
-        background: no-repeat center center/cover;
-    }
+.fa-search{
+    color: black;
+    text-decoration: none;
+    background-color: white;
+    border-radius: 5px;
+}
 
-    .anime-card-content{
-        grid-column: 1 / 3;
-        grid-row: 2 / 3;
-        padding: 1.5rem;
-    }
+.fa-search:hover{
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+}
 
-    .anime-card-title{
-        font-size: 1.75rem;
-        line-height: 1.1;
-        font-weight: 700;
-        margin-bottom: 0.75rem;
-        text-align: center;
-    }
+.logo-link-wrapper a img{
+    position: absolute;
+    top: 0;
+    margin-left: 5px;
+    margin-top: 15px;
+}
 
-    .anime-card-description{   
-        font-size: 1rem;
-        line-height: 1.5;
-        margin-bottom: 0.75rem;
-        height: 200px;
-        overflow: hidden;
-        overflow-y: scroll;
-    }
-
-    .anime-card-genre{
-        font-size: medium;
-        border-bottom: 1px solid silver;
-        margin-bottom: 10px;
-        text-align: center;
-    }
-
-    .anime-card-footers{
-        grid-column: 1 / -1;
-        display: flex;
-        justify-content: space-between;
-        }
-
-    .add-to-watch{
-        grid-column: 2 / -1;
-    }
-
-    .remove-from-watch button{
-        text-decoration: none;
-        color: black;
-        border: none;
-        background: white;
-        font-size: large;
-        outline: none;
-    }
-
-    .add-to-watch, button{
-        background-color: white;
-        color: black;
-        border: none;
-        font-size: large;
-        outline: none;
-    }
-
-    .add-to-watch button:hover{
-        cursor: pointer;
-        color: red;
-    }
-
-    .remove-from-watch button:hover{
-        cursor: pointer;
-        color: red;
-    }
-
-
-    .anime-card-avg-rating{
-        font-size: small;
-        font-weight: 700;
-        transform: translateY(5px);
-    }
-
-
-    /** Nav Styles **/
-    
-    .nav-wrapper{
-        display: flex;
-        flex-wrap: wrap;
-        padding: 80px;
-        background-color: white;
-        height: 45px;
-        border-bottom: 3px solid silver;
-        background: no-repeat center center/cover;
-        position: relative;
-    }
-
-    .nav-left-side{
-        display: flex;
-    }
-
-    .nav-right-side .nav-link-wrapper a{
-        position: absolute;
-        right: 50px;
-    }
-
-    .nav-wrapper > .nav-left-side > div{
-        margin-right: 20px;
-        font-size: 0.9em;
-        text-transform: uppercase;
-    }
-
-    .nav-link-wrapper{
-        height: 22px;
-        border-bottom: 1px solid transparent;
-        transition: border-bottom 0.5s;
-    }
-
-    .nav-link-wrapper a{
-        color: #8a8a8a;
-        text-decoration: none;
-        transition: color 0.5s;
-        background-color: white;
-        border-radius: 8px;
-    }   
-
-    .nav-link-wrapper a:hover{
-        color: black;
-        background: rgb(204, 204, 204);
-        transition: all 0.5s;
-    }
-
-    .active-nav-link a{
-        color: black i !important;
-    }
-
-    .fa-search{
-        color: black;
-        text-decoration: none;
-    }
-
-    .fa-search:hover{
-        color: white;
-    }
-
-    .logo-link-wrapper a img{
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 82px;
-    }
-
-    .logo-link-wrapper a img:hover{
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 82px;
-        filter: brightness(80%);
-        transition: all 0.5s;
-    }
+.logo-link-wrapper a img:hover{
+    position: absolute;
+    margin-left: 5px;
+    filter: brightness(80%);
+    transition: all 0.5s;
+}
 
 /** Login Register Styles **/
+
 input[type=submit]{
     background: #1E90FF;
     color: white;
@@ -669,6 +294,7 @@ input{
 
 .search-container .search-form .fa-search{
     color: white;
+    background: none;
 }
 
 .search-form input{
@@ -691,7 +317,7 @@ input{
     row-gap: 20px;
 }
 
-/** Flash Messages Styles **/
+/** Flash message styles **/
 .error, .warning{
     list-style-type: none;
     background-repeat: no-repeat;
@@ -714,6 +340,103 @@ input{
     background-image: url('https://i.imgur.com/GnyDvKN.png');
 }
 
+
+/***************************************************************************** 
+**        Responsive CSS: Extra small devices (phones, 600px and down)
+******************************************************************************/
+
+@media only screen and (max-width: 600px){
+    
+    /** Anime cards style **/
+    .anime-cards-container{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 15px;
+    }
+    
+    /** Nav Styles **/
+    
+    .nav-wrapper{
+        padding: 120px;
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+        justify-content: space-between;
+        background: no-repeat center center/cover;
+        position: relative;
+    }
+    
+    .nav-left-side{
+        display: grid;
+        row-gap: 20px;
+    }
+
+    .nav-right-side .nav-link-wrapper a{
+        position: absolute;
+        float: inline-end;
+        text-align: center;
+        width: 70px;
+    }
+    
+    .nav-wrapper > .nav-left-side > div{
+        margin-right: 20px;
+        font-size: 0.9em;
+        text-transform: uppercase;
+    }
+    
+    .nav-link-wrapper{
+        height: 22px;
+        border-bottom: 1px solid transparent;
+        transition: border-bottom 0.5s;
+    }
+    
+    .logo-link-wrapper a img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 82px;
+    }
+    
+    .logo-link-wrapper a img:hover{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 82px;
+        filter: brightness(80%);
+        transition: all 0.5s;
+    }
+}
+    
+/***************************************************************************** 
+Responsive CSS: Small devices (portrait tablets, large phones, 600px and up)
+******************************************************************************/
+
+@media only screen and (min-width: 600px){
+    
+    /** Anime cards style **/
+    .anime-cards-container{ 
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 15px;
+    }
+
+    /** Nav Styles **/
+    .logo-link-wrapper a img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 82px;
+    }
+
+    .logo-link-wrapper a img:hover{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 82px;
+        filter: brightness(80%);
+        transition: all 0.5s;
+    }
+
 }
 
 
@@ -722,706 +445,26 @@ input{
 **  Responsive CSS: Medium devices (landscape tablets, 768px and up)
 ******************************************************************************/
 
-
 @media only screen and (min-width: 768px){
-    
-    *, *::before, *::after{
-        box-sizing: border-box;
-    }
-    
-    body{
-        margin: 0;
-        background-color: #ffffff;
-        color: #ffffff;
-        font-size: 1.25rem;
-        line-height: 1.3;
-        font-family: 'Poppins', sans-serif;
-    }
-    
-    .container{
-        background: #101010;
-    }
-    
-    /** Anime cards style **/
     .anime-cards-container{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
     }
     
-    .anime-card{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 300px 1fr auto;
-        background-color: #ffffff;
-        border-radius: 10px;
-        color: #101010;
-    }
-    
-    .anime-card-image{
-        grid-column: 1 / 3;
-        grid-row: 1 / 2;
-        background: no-repeat center center/cover;
-    }
-    
-    .anime-card-content{
-        grid-column: 1 / 3;
-        grid-row: 2 / 3;
-        padding: 1.5rem;
-    }
-    
-    .anime-card-title{
-        font-size: 1.75rem;
-        line-height: 1.1;
-        font-weight: 700;
-        margin-bottom: 0.75rem;
-        text-align: center;
-    }
-    
-    .anime-card-description{   
-        font-size: 1rem;
-        line-height: 1.5;
-        margin-bottom: 0.75rem;
-        height: 200px;
-        overflow: hidden;
-        overflow-y: scroll;
-    }
-    
-    .anime-card-genre{
-        font-size: medium;
-        border-bottom: 1px solid silver;
-        margin-bottom: 10px;
-        text-align: center;
-    }
-    
-    .anime-card-footers{
-        grid-column: 1 / -1;
-        display: flex;
-        justify-content: space-between;
-    }
-    
-    .add-to-watch{
-        grid-column: 2 / -1;
-    }
-    
-    .add-to-watch button{
-        text-decoration: none;
-        color: black;
-        border: none;
-        background: white;
-        font-size: large;
-        outline: none;
-    }
-    
-    .remove-from-watch button{
-        text-decoration: none;
-        color: black;
-        border: none;
-        background: white;
-        font-size: large;
-        outline: none;
-    }
-
-    .add-to-watch button:hover{
-        cursor: pointer;
-        color: red;
-    }
-
-    .remove-from-watch button:hover{
-        cursor: pointer;
-        color: red;
-    }
-    
-    
-    .anime-card-avg-rating{
-        font-size: small;
-        font-weight: 700;
-        transform: translateY(5px);
-    }
-    
-    
-    /** Nav Styles **/
-    
-    .nav-wrapper{
-        display: flex;
-        justify-content: space-between;
-        padding: 50px;
-        background-color: white;
-        height: 45px;
-        border-bottom: 3px solid silver;
-        background: no-repeat center center/cover;
-        position: relative;
-    }
-    
-    .nav-left-side{
-        display: flex;
-    }
-    
-    .nav-wrapper > .nav-left-side > div{
-        margin-right: 20px;
-        font-size: 0.9em;
-        text-transform: uppercase;
-    }
-    
-    .nav-link-wrapper{
-        height: 22px;
-        border-bottom: 1px solid transparent;
-        transition: border-bottom 0.5s;
-    }
-    
-    .nav-link-wrapper a{
-        color: #8a8a8a;
-        text-decoration: none;
-        transition: color 0.5s;
-        background-color: white;
-        border-radius: 8px;
-    }
-    
-    .nav-link-wrapper a:hover{
-        color: black;
-        background: rgb(204, 204, 204);
-        transition: all 0.5s;
-    }
-    
-    .active-nav-link a{
-        color: black i !important;
-    }
-    
-    .fa-search{
-        color: black;
-        text-decoration: none;
-    }
-
-    .fa-search:hover{
-        color: white;
-    }
-   
-    .logo-link-wrapper a img{
-        position: absolute;
-        top: 0;
-        height: 100px;
-        margin-left: 20px;
-    }
-    
-    .logo-link-wrapper a img:hover{
-        position: absolute;
-        height: 100px;
-        margin-left: 20px;
-        filter: brightness(80%);
-        transition: all 0.5s;
-    }
-
-    /** Login Register Styles **/
-
-    input[type=submit]{
-        background: #1E90FF;
-        color: white;
-        padding: 14px 20px;
-        border: none;
-        cursor: pointer;
-    }
-    
-    input[type=submit]:hover {
-        background: #7bafe2;
-    }
-    .login-register-container{
-        display: grid;
-        justify-content: center;
-        width: 100%;
-    }
-
-    .login-register-container a:hover{
-        filter: brightness(75%);
-        transition: all 0.5s;
-    }
-    
-    #site-logo{
-        justify-self: center;   
-    }
-    
-    h4{
-        font-weight: 800;
-    }
-    
-    label, h4{
-        color: black;
-    }
-    
-    .login-register-links-wrapper{
-        display: flex;
-        justify-content: space-evenly;
-        border-bottom: 1px solid silver;
-    }
-    
-    .login-register-links-wrapper a{
-        text-decoration: none;
-        color: rgb(145, 139, 139);
-    }
-    
-    .login-register-links-wrapper, input, label{
-        margin-bottom: 25px;
-        width: 400px;
-    }
-    
-    .input-field-wrapper{
-        margin-bottom: 15px;
-    }
-
-    .text-danger{
-        color: #D8000C;
-    }
-    
-    input{
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
-    
-    .form-container{
-        background: rgb(248, 248, 248);
-        padding: 20px;
-    }
-    
-    .login-register-links-wrapper a:hover{
-        color: black;
-    }
-    
-    .nav-active a{
-        color: black;
-    }
-    
-    /** Search page styles **/
-    
-    .search-form-container{
-        display: grid;
-        justify-content: center;
-        margin-bottom: 60px;
-    }
-    
-    .search-container h2{
-        color: black;
-    }
-    
-    .search-form{
-        display: grid;
-    }
-    
-    .search-form button{
-        height: 2rem;
-        background: #3185ce;
-    }
-
-    .search-form button:hover{
-        height: 2rem;
-        background: #5a8cb8;
-        transition: all 0.5s;
-    }
-    
-    .search-container .search-form .fa-search{
-        color: white;
-    }
-    
-    .search-form input{
-        width: 100%;
-        overflow: hidden;
-    }
-    
-    #englishTitle{
-        margin-bottom: 0;
-    }
-    
-    /** Search content area styles **/
-    
-    .search-container{
-        background-color: #F0F0F0;
-    }
-    
-    .search-anime-cards-container{
-        display: grid;
-        row-gap: 20px;
-    }
-
-    /** Flash message styles **/
-    .error, .warning{
-        list-style-type: none;
-        background-repeat: no-repeat;
-        max-width: 400px;
-        padding: 15px 10px 15px 50px;
-        margin: 10px auto;
-        background-position: 10px center;
-        border: 1px solid;
-    }
-    
-    .warning {
-        color: #9F6000;
-        background-color: #FEEFB3;
-        background-image: url('https://i.imgur.com/Z8q7ww7.png');
-    }
-
-    .error {
-    	color: #D8000C;
-    	background-color: #FFBABA;
-    	background-image: url('https://i.imgur.com/GnyDvKN.png');
-    }
 }
-
-
-
 
 /***************************************************************************** 
 **   Responsive CSS: Large devices (laptops/desktops, 992px and up)
 ******************************************************************************/
 @media only screen and (min-width: 992px){
     
-
-    *, *::before, *::after{
-        box-sizing: border-box;
-    }
-    
-    body{
-        margin: 0;
-        background-color: #ffffff;
-        color: #ffffff;
-        font-size: 1.25rem;
-        line-height: 1.3;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    .container{
-        background: #101010;
-    }
-    
     /** Anime cards style **/
     .anime-cards-container{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 15px;
-    
-        @media screen (max-width: 600px){
-            grid-template-columns: 1fr;
-        }
     }
-    
-    .anime-card{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 300px 1fr auto;
-        background-color: #ffffff;
-        border-radius: 10px;
-        color: #101010;
-    }
-    
-    .anime-card-image{
-        grid-column: 1 / 3;
-        grid-row: 1 / 2;
-        background: no-repeat center center/cover;
-    }
-    
-    .anime-card-content{
-        grid-column: 1 / 3;
-        grid-row: 2 / 3;
-        padding: 1.5rem;
-    }
-    
-    .anime-card-title{
-        font-size: 1.75rem;
-        line-height: 1.1;
-        font-weight: 700;
-        margin-bottom: 0.75rem;
-        text-align: center;
-    }
-    
-    .anime-card-description{   
-        font-size: 1rem;
-        line-height: 1.5;
-        margin-bottom: 0.75rem;
-        height: 200px;
-        overflow: hidden;
-        overflow-y: scroll;
-    }
-    
-    .anime-card-genre{
-        font-size: medium;
-        border-bottom: 1px solid silver;
-        margin-bottom: 10px;
-        text-align: center;
-    }
-    
-    .anime-card-footers{
-        grid-column: 1 / -1;
-        display: flex;
-        justify-content: space-between;
-    }
-    
-    .add-to-watch{
-        grid-column: 2 / -1;
-    }
-    
-    .add-to-watch button{
-        text-decoration: none;
-        color: black;
-        border: none;
-        background: white;
-        font-size: large;
-    }
-
-    .remove-from-watch button{
-        text-decoration: none;
-        color: black;
-        border: none;
-        background: white;
-        font-size: large;
-        outline: none;
-    }
-    
-    .add-to-watch button:hover{
-        cursor: pointer;
-        color: red;
-    }
-
-    .remove-from-watch button:hover{
-        cursor: pointer;
-        color: red;
-    }
-    
-    .anime-card-avg-rating{
-        font-size: small;
-        font-weight: 700;
-        transform: translateY(5px);
-    }
-    
-    
-    /** Nav Styles **/
-    
-    .nav-wrapper{
-        display: flex;
-        justify-content: space-between;
-        padding: 50px;
-        background-color: white;
-        height: 45px;
-        border-bottom: 3px solid silver;
-        background: no-repeat center center/cover;
-        position: relative;
-    }
-    
-    .nav-left-side{
-        display: flex;
-        position: absolute;
-        margin-left: 200px;
-    }
-    
-    .nav-wrapper > .nav-left-side > div{
-        margin-right: 20px;
-        font-size: 0.9em;
-        text-transform: uppercase;
-    }
-    
-    .nav-link-wrapper{
-        height: 22px;
-        border-bottom: 1px solid transparent;
-        transition: border-bottom 0.5s;
-    }
-    
-    .nav-link-wrapper a{
-        color: #8a8a8a;
-        text-decoration: none;
-        transition: color 0.5s;
-        background-color: white;
-        border-radius: 8px;
-    }
-    
-    .nav-link-wrapper a:hover{
-        color: black;
-        background: rgb(204, 204, 204);
-        transition: all 0.5s;
-    }
-    
-    .active-nav-link a{
-        color: black i !important;
-    }
-    
-    .fa-search{
-        color: black;
-        text-decoration: none;
-    }
-
-    .fa-search:hover{
-        color: white;
-    }
-    
-    .logo-link-wrapper a img{
-        position: absolute;
-        height: 105px;
-        margin-left: 50px;
-    }
-
-    .logo-link-wrapper a img:hover{
-        position: absolute;
-        height: 105px;
-        margin-left: 50px;
-        filter: brightness(80%);
-        transition: all 0.5s;
-    }
-    
-    /** Login Register Styles **/
-    
-    input[type=submit]{
-        background: #1E90FF;
-        color: white;
-        padding: 14px 20px;
-        border: none;
-        cursor: pointer;
-    }
-    
-    input[type=submit]:hover {
-        background: #7bafe2;
-    }
-    .login-register-container{
-        display: grid;
-        justify-content: center;
-        width: 100%;
-    }
-    
-    .login-register-container a:hover{
-        filter: brightness(75%);
-        transition: all 0.5s;
-    }
-
-    #site-logo{
-        justify-self: center;   
-    }
-    
-    h4{
-        font-weight: 800;
-    }
-    
-    label, h4{
-        color: black;
-    }
-    
-    .login-register-links-wrapper{
-        display: flex;
-        justify-content: space-evenly;
-        border-bottom: 1px solid silver;
-    }
-    
-    .login-register-links-wrapper a{
-        text-decoration: none;
-        color: rgb(145, 139, 139);
-    }
-    
-    .login-register-links-wrapper, input, label{
-        margin-bottom: 25px;
-        width: 400px;
-    }
-    
-    .input-field-wrapper{
-        margin-bottom: 15px;
-    }
-
-    .text-danger{
-        color: #D8000C;
-    }
-    
-    input{
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
-    
-    .form-container{
-        background: rgb(248, 248, 248);
-        padding: 20px;
-    }
-    
-    .login-register-links-wrapper a:hover{
-        color: black;
-    }
-    
-    .nav-active a{
-        color: black;
-    }
-    
-    /** Search page styles **/
-    
-    .search-form-container{
-        display: grid;
-        justify-content: center;
-        margin-bottom: 60px;
-    }
-    
-    .search-container h2{
-        color: black;
-    }
-    
-    .search-form{
-        display: grid;
-    }
-    
-    .search-form button{
-        height: 2rem;
-        background: #3185ce;
-    }
-
-    .search-form button:hover{
-        height: 2rem;
-        background: #5a8cb8;
-        transition: all 0.5s;
-    }
-    
-    .search-container .search-form .fa-search{
-        color: white;
-    }
-    
-    .search-form input{
-        width: 100%;
-        overflow: hidden;
-    }
-    
-    #englishTitle{
-        margin-bottom: 0;
-    }
-    
-    /** Search content area styles **/
-    
-    .search-container{
-        background-color: #F0F0F0;
-    }
-    
-    .search-anime-cards-container{
-        display: grid;
-        row-gap: 20px;
-    }
-
-   /** Flash message styles **/
-   .error, .warning{
-    list-style-type: none;
-    background-repeat: no-repeat;
-    max-width: 400px;
-    padding: 15px 10px 15px 50px;
-    margin: 10px auto;
-    background-position: 10px center;
-    border: 1px solid;
-}
-
-.warning {
-    color: #9F6000;
-    background-color: #FEEFB3;
-    background-image: url('https://i.imgur.com/Z8q7ww7.png');
-}
-
-.error {
-    color: #D8000C;
-    background-color: #FFBABA;
-    background-image: url('https://i.imgur.com/GnyDvKN.png');
-}
-
 }
 
 /***************************************************************************** 
@@ -1430,348 +473,11 @@ Responsive CSS large: Extra large devices (large laptops and desktops, 1200px an
 
 @media only screen and (min-width: 1200px){
 
-    *, *::before, *::after{
-        box-sizing: border-box;
-    }
-    
-    body{
-        margin: 0;
-        background-color: #ffffff;
-        color: #ffffff;
-        font-size: 1.25rem;
-        line-height: 1.3;
-        font-family: 'Poppins', sans-serif;
-    }
-    
-    .container{
-        background: #101010;
-    }
-    
     /** Anime cards style **/
     .anime-cards-container{
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 15px;
-    }
-    
-    .anime-card{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 300px 1fr auto;
-        background-color: #ffffff;
-        border-radius: 10px;
-        color: #101010;
-    }
-    
-    .anime-card-image{
-        grid-column: 1 / 3;
-        grid-row: 1 / 2;
-        background: no-repeat center center/cover;
-    }
-    
-    .anime-card-content{
-        grid-column: 1 / 3;
-        grid-row: 2 / 3;
-        padding: 1.5rem;
-    }
-    
-    .anime-card-title{
-        font-size: 1.75rem;
-        line-height: 1.1;
-        font-weight: 700;
-        margin-bottom: 0.75rem;
-        text-align: center;
-    }
-    
-    .anime-card-description{   
-        font-size: 1rem;
-        line-height: 1.5;
-        margin-bottom: 0.75rem;
-        height: 200px;
-        overflow: hidden;
-        overflow-y: scroll;
-    }
-    
-    .anime-card-genre{
-        font-size: medium;
-        border-bottom: 1px solid silver;
-        margin-bottom: 10px;
-        text-align: center;
-    }
-    
-    .anime-card-footers{
-        grid-column: 1 / -1;
-        display: flex;
-        justify-content: space-between;
-    }
-    
-    .add-to-watch{
-        grid-column: 2 / -1;
-    }
-    
-    .add-to-watch button{
-        text-decoration: none;
-        color: black;
-        border: none;
-        background: white;
-        font-size: large;
-        outline: none;
-    }
-
-    .remove-from-watch button{
-        text-decoration: none;
-        color: black;
-        border: none;
-        background: white;
-        font-size: large;
-        outline: none;
-    }
-    
-    .add-to-watch button:hover{
-        cursor: pointer;
-        color: red;
-    }
-
-    .remove-from-watch button:hover{
-        cursor: pointer;
-        color: red;
-    }
-    
-    .anime-card-avg-rating{
-        font-size: small;
-        font-weight: 700;
-        transform: translateY(5px);
-    }
-    
-    
-    /** Nav Styles **/
-    
-    .nav-wrapper{
-        display: flex;
-        justify-content: space-between;
-        padding: 50px;
-        background-color: white;
-        height: 45px;
-        border-bottom: 3px solid silver;
-        background: no-repeat center center/cover;
-        position: relative;
-    }
-    
-    .nav-left-side{
-        display: flex;
-        position: absolute;
-        margin-left: 200px;
-    }
-    
-    .nav-wrapper > .nav-left-side > div{
-        margin-right: 20px;
-        font-size: 0.9em;
-        text-transform: uppercase;
-    }
-    
-    .nav-link-wrapper{
-        height: 22px;
-        border-bottom: 1px solid transparent;
-        transition: border-bottom 0.5s;
-    }
-    
-    .nav-link-wrapper a{
-        color: #8a8a8a;
-        text-decoration: none;
-        transition: color 0.5s;
-        background-color: white;
-        border-radius: 8px;
-    }
-    
-    .nav-link-wrapper a:hover{
-        color: black;
-        background: rgb(204, 204, 204);
-        transition: all 0.5s;
-    }
-    
-
-    .active-nav-link a{
-        color: black i !important;
-    }
-    
-    .fa-search{
-        color: black;
-        text-decoration: none;
-    }
-
-    .fa-search:hover{
-        color: white;
-    }
-    
-    .logo-link-wrapper a img{
-        position: absolute;
-        height: 105px;
-        margin-left: 50px;
-    }
-
-    .logo-link-wrapper a img:hover{
-        position: absolute;
-        height: 105px;
-        margin-left: 50px;
-        filter: brightness(80%);
-        transition: all 0.5s;
-    }
-
-    /** Login Register Styles **/
-    
-    
-    input[type=submit]{
-        background: #1E90FF;
-        color: white;
-        padding: 14px 20px;
-        border: none;
-        cursor: pointer;
-    }
-    
-    input[type=submit]:hover {
-        background: #7bafe2;
-    }
-    .login-register-container{
-        display: grid;
-        justify-content: center;
-        width: 100%;
-    }
-
-    .login-register-container a:hover{
-        filter: brightness(75%);
-        transition: all 0.5s;
-    }
-    
-    #site-logo{
-        justify-self: center;   
-    }
-    
-    h4{
-        font-weight: 800;
-    }
-    
-    label, h4{
-        color: black;
-    }
-    
-    .login-register-links-wrapper{
-        display: flex;
-        justify-content: space-evenly;
-        border-bottom: 1px solid silver;
-    }
-    
-    .login-register-links-wrapper a{
-        text-decoration: none;
-        color: rgb(145, 139, 139);
-    }
-    
-    .login-register-links-wrapper, input, label{
-        margin-bottom: 25px;
-        width: 400px;
-    }
-    
-    .input-field-wrapper{
-        margin-bottom: 15px;
-    }
-
-    .text-danger{
-        color: #D8000C;
-    }
-    
-    input{
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
-    
-    .form-container{
-        background: rgb(248, 248, 248);
-        padding: 20px;
-    }
-    
-    .login-register-links-wrapper a:hover{
-        color: black;
-    }
-    
-    .nav-active a{
-        color: black;
-    }
-    
-    /** Search page styles **/
-    
-    .search-form-container{
-        display: grid;
-        justify-content: center;
-        margin-bottom: 60px;
-    }
-    
-    .search-container h2{
-        color: black;
-    }
-    
-    .search-form{
-        display: grid;
-    }
-    
-    .search-form button{
-        height: 2rem;
-        background: #3185ce;
-    }
-
-    .search-form button:hover{
-        height: 2rem;
-        background: #5a8cb8;
-        transition: all 0.5s;
-    }
-    
-    .search-container .search-form .fa-search{
-        color: white;
-    }
-    
-    .search-form input{
-        width: 100%;
-        overflow: hidden;
-    }
-    
-    #englishTitle{
-        margin-bottom: 0;
-    }
-    
-    /** Search content area styles **/
-    
-    .search-container{
-        background-color: #F0F0F0;
-    }
-    
-    .search-anime-cards-container{
-        display: grid;
-        row-gap: 20px;
-    }
-
-    /** Flash Messages Styles **/
-    .error, .warning{
-        list-style-type: none;
-        background-repeat: no-repeat;
-        max-width: 400px;
-        padding: 15px 10px 15px 50px;
-        margin: 10px auto;
-        background-position: 10px center;
-        border: 1px solid;
-    }
-
-    .warning {
-        color: #9F6000;
-        background-color: #FEEFB3;
-        background-image: url('https://i.imgur.com/Z8q7ww7.png');
-    }
-
-    .error {
-        color: #D8000C;
-        background-color: #FFBABA;
-        background-image: url('https://i.imgur.com/GnyDvKN.png');
     }
 }
 
