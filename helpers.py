@@ -20,22 +20,25 @@ def processResponse(response, flag, animeIDs):
             videoIDs.append(response['data'][i]['attributes']['youtubeVideoId'])
             ))
     else: 
+        
         for i in range(0, len(response)):
+            try:
+                image = response['data'][i]['attributes']['coverImage']['original']
+            except TypeError:
+                image = response['data'][i]['attributes']['posterImage']['original']
             myList.append((
             response['data'][i]['id'],
             response['data'][i]['attributes']['canonicalTitle'],
             response['data'][i]['attributes']['synopsis'],
-            response['data'][i]['attributes']['coverImage']['original'],
+            image,
             response['data'][i]['attributes']['averageRating'],
             response['data'][i]['attributes']['ageRatingGuide']
             ))
-
-
+    
     return myList
         
 def test(x, animeIDs):
     return 'user_is_watching' if x in animeIDs else 'user_not_watching'
-
 
 
 def handleResponse2(user_list):
