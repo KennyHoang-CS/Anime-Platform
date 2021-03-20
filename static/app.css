@@ -567,6 +567,14 @@ Responsive CSS: Small devices (portrait tablets, large phones, 600px and up)
         grid-template-columns: 1fr 2fr;
         grid-template-rows: minmax(457px, auto);
     }
+
+    .anime-card-content-v2{
+        display: grid;
+        row-gap: 15px;
+        margin-left: 10px;
+        justify-content: unset;
+    }
+
 }
 
 /***************************************************************************** 
