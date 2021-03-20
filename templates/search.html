@@ -3,6 +3,15 @@
     {% block content %}
     <div class="search-container">
         <div class="search-form-container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            <ul class="flashes">
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        {% endwith %}
             <h2>Looking for a specific anime?</h1>
             <form method="POST" class="search-form">
             {{ form.hidden_tag() }}

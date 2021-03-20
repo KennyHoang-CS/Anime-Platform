@@ -60,7 +60,6 @@ def login():
 
         if user:
             do_login(user)
-            flash(f"Hello, {user.username}!", "success")
             return redirect("/")
         else:
             flash("Login credentials is invalid.", 'error')
@@ -147,7 +146,7 @@ def show_watch_list(user_id):
     """ Show the user's anime watch list. """
 
     if not g.user:
-        flash("Login is required to access your watch list.", "warning")
+        flash("Login is required to access your watch list.", "info")
         return redirect("/login")
 
     user = User.query.get_or_404(user_id)
@@ -191,14 +190,14 @@ def user_add_anime(anime_id):
     """ Add an anime to user's watch list. """
 
     if not g.user:
-        flash("Login is required to add an anime.", "warning")
+        flash("Login is required to add an anime.", "info")
         return redirect("/login")
     
     # Check if the 'anime to be added' is already in user's watch list. 
     animeIDs = [id.anime_id for id in list(g.user.watchList)]
     if anime_id in animeIDs:
-        flash('This anime is already exist in your watch list.')
-        return redirect('/')
+        flash('This anime is already exist in your watch list.', info)
+        return redirect(f'/users/{g.user.id}')
 
     new_watch = WatchAnime(user_id=g.user.id, anime_id=anime_id)
     db.session.add(new_watch)
@@ -228,11 +227,23 @@ def search_anime():
     """ Search for specific anime. """
     form = SearchForm()
     
+    noResults = False
+
     try:
         if form.validate_on_submit():
             data = request.form['englishTitle']
-            response =  requests.get(f'{BASE_PATH}/anime?filter[text]={data}')
-            myList = processResponse(response.json(), 'search', [])
+            response =  requests.get(f'{BASE_PATH}/anime?filter[categories]={data}')
+            response = response.json()
+            
+            if len(response['data']) == 0:
+                response = requests.get(f'{BASE_PATH}/anime?filter[text]={data}')
+                response = response.json()
+
+                if len(response['data']) == 0:
+                    flash('Search did not find any results.', 'success')
+                    return redirect('/search')
+        
+            myList = processResponse(response, 'search', [])
             return render_template('search.html', form=form, anime_search_list=myList)
     except (TypeError, IndexError) as e:
         return redirect('/search')

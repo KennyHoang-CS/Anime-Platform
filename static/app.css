@@ -372,7 +372,7 @@ input{
 }
 
 /** Flash message styles **/
-.error, .warning{
+.error, .warning, .success, .info{
     list-style-type: none;
     background-repeat: no-repeat;
     max-width: 400px;
@@ -380,6 +380,18 @@ input{
     margin: 10px auto;
     background-position: 10px center;
     border: 1px solid;
+    transform: translateX(-20px;);
+}
+
+.flashes{
+    padding-left: 0;
+}
+
+
+.success{
+    color: #4F8A10;
+	background-color: #DFF2BF;
+	background-image: url('https://i.imgur.com/Q9BGTuy.png');
 }
 
 .warning {
@@ -392,6 +404,12 @@ input{
     color: #D8000C;
     background-color: #FFBABA;
     background-image: url('https://i.imgur.com/GnyDvKN.png');
+}
+
+.info {
+    color: #00529B;
+    background-color: #BDE5F8;
+    background-image: url('https://i.imgur.com/ilgqWuX.png');
 }
 
 

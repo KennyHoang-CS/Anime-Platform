@@ -21,7 +21,7 @@ def processResponse(response, flag, animeIDs):
             ))
     else: 
         
-        for i in range(0, len(response)):
+        for i in range(0, len(response['data'])):
             try:
                 image = response['data'][i]['attributes']['coverImage']['original']
             except TypeError:
@@ -37,6 +37,11 @@ def processResponse(response, flag, animeIDs):
     
     return myList
         
+
+def imageChecker(source):
+    """ sads """
+    
+
 def test(x, animeIDs):
     return 'user_is_watching' if x in animeIDs else 'user_not_watching'
 
