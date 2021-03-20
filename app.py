@@ -166,10 +166,20 @@ def get_anime_details(anime_id):
     response = requests.get(f'{BASE_PATH}/anime/{anime_id}')
     anime = response.json()
     
+    video = anime['data']['attributes']['youtubeVideoId']
+
+    if video is None:
+        video = 'Pg7P06d2cyI'
+
+    try:
+        image = anime['data']['attributes']['coverImage']['original']
+    except TypeError:
+        image = anime['data']['attributes']['posterImage']['original']
+
     is_watching = list(WatchAnime.query.filter(WatchAnime.anime_id == anime_id))
     is_watching = True if len(is_watching) != 0 else False
 
-    return render_template('/animes/anime_details.html', anime=anime, is_watching=is_watching)
+    return render_template('/animes/anime_details.html', anime=anime, is_watching=is_watching, video=video, image=image)
 
 
 ##############################################################################
