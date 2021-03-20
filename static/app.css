@@ -49,6 +49,11 @@ body{
     text-align: center;
 }
 
+.anime-card-title a{
+    text-decoration: none;
+    color: black;
+}
+
 .anime-card-description{   
     font-size: 1rem;
     line-height: 1.5;
@@ -75,7 +80,7 @@ body{
     grid-column: 2 / -1;
 }
 
-.add-to-watch button{
+.add-to-watch button, .remove-from-watch button{
     text-decoration: none;
     color: black;
     border: none;
@@ -84,23 +89,9 @@ body{
     outline: none;
 }
 
-.remove-from-watch button{
-    text-decoration: none;
-    color: black;
-    border: none;
-    background: white;
-    font-size: large;
-    outline: none;
-}
-
-.add-to-watch button:hover{
+.add-to-watch button:hover, .remove-from-watch button:hover, .anime-card-title a:hover{
+    text-decoration: underline;
     cursor: pointer;
-    color: red;
-}
-
-.remove-from-watch button:hover{
-    cursor: pointer;
-    color: red;
 }
 
 .anime-card-avg-rating{
