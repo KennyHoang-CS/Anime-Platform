@@ -157,6 +157,23 @@ def show_watch_list(user_id):
 
 ##############################################################################
 #
+# Routes to get an anime's detail. 
+
+@app.route('/animes/<int:anime_id>', methods=["GET"])
+def get_anime_details(anime_id):
+    """ Get the anime located by anime_id for its details from external API.  """
+
+    response = requests.get(f'{BASE_PATH}/anime/{anime_id}')
+    anime = response.json()
+    
+    is_watching = list(WatchAnime.query.filter(WatchAnime.anime_id == anime_id))
+    is_watching = True if len(is_watching) != 0 else False
+
+    return render_template('/animes/anime_details.html', anime=anime, is_watching=is_watching)
+
+
+##############################################################################
+#
 # Routes to add anime to user's watch-list. 
 
 @app.route('/users/<int:anime_id>/add', methods=["POST"])

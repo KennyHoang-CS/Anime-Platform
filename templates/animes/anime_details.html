@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+    {% block content %}
+
+    <div class="anime-details-container">
+    <div class="anime-card-v2">
+        <div class="anime-card-image-v2" style="background-image: url({{ anime['data']['attributes']['coverImage']['original']}});"> </div>
+        <iframe width="100%" height="450" frameborder="0" fullscreen="true"
+            src="https://www.youtube.com/embed/{{ anime['data']['attributes']['youtubeVideoId'] }}?autoplay=0&mute=1">
+        </iframe> 
+        
+        <div class="anime-card-content-v2">
+            {% if is_watching %}
+                <form action="/users/{{ anime['data']['id'] }}/delete" method="POST">
+                    <span class="remove-from-watch-v2"><button>Remove from watch list</button></span>
+                </form> 
+            {% else %}
+                <form action="/users/{{ anime['data']['id'] }}/add" method="POST">
+                    <span class="add-to-watch-v2"><button>Add to watch list</button></span>
+                </form>
+            {% endif %} 
+            <div class="information">
+                Information
+            </div>
+            <div class="anime-card-title-v2">
+                <span class="header">Title:</span> {{ anime['data']['attributes']['canonicalTitle'] }}
+            </div>
+            <div class="anime-type">
+                <span class="header">Type:</span> {{ anime['data']['attributes']['subtype'] }}
+            </div>
+            <div class="anime-ageRating-v2">
+                <span class="header">Age Rating:</span> {{ anime['data']['attributes']['ageRatingGuide'] }}
+            </div>
+            <div class="anime-avgRating-v2">
+                <span class="header">Average Rating:</span> {{ anime['data']['attributes']['averageRating'] }}
+            </div>
+            <div class="anime-start-date">
+                <span class="header">Release:</span> {{ anime['data']['attributes']['startDate'] }}
+            </div>
+            <div class="anime-end-date">
+                <span class="header">Ended:</span> {{ anime['data']['attributes']['endDate'] }}
+            </div>
+            <div class="anime-episodes">
+                <span class="header">Total Episodes: </span> {{ anime['data']['attributes']['episodeCount'] }}
+            </div>
+            <div class="anime-status">
+                <span class="header">Status:</span>  {{ anime['data']['attributes']['status'] }}
+            </div>
+        </div>
+        <div class="synopsis">
+            <div class="synopsis-title">
+                Synopsis
+            </div>
+            <div class="anime-card-description">
+                {{ anime['data']['attributes']['synopsis'] }}
+            </div>
+        </div>
+        
+    </div>
+
+    </div> <!-- end of anime-details-container -->
+
+    {% endblock %}
+
+    

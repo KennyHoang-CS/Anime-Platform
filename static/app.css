@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+
 body{
     margin: 0;
     background-color: #ffffff;
@@ -52,7 +53,7 @@ body{
     font-size: 1rem;
     line-height: 1.5;
     margin-bottom: 0.75rem;
-    height: 200px;
+    height: 155px;
     overflow: hidden;
     overflow-y: scroll;
 }
@@ -106,6 +107,68 @@ body{
     font-size: small;
     font-weight: 700;
     transform: translateY(5px);
+}
+
+/** Anime detail page styles **/
+
+.anime-details-container{
+    display: grid;
+}
+
+.anime-card-v2{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: minmax(457px, auto);
+    color: black;
+}
+
+.anime-card-content-v2{
+    display: grid;
+    row-gap: 15px;
+    margin-left: 10px;
+}
+
+.anime-card-image-v2{
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    background: no-repeat center center/cover;
+    margin-left: 10px;
+}
+
+.synopsis{
+    color: black;
+    margin-left: 15px;
+}
+
+.synopsis-title, .information{
+    font-size: larger;
+    font-weight: 600;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 7px;
+}
+
+.information{
+    color: black;
+    background: white;
+}
+
+.header{
+    font-weight: 600;
+}
+
+.remove-from-watch-v2 button, .add-to-watch-v2 button{
+    height: 2rem;
+    background: rgb(66, 170, 245);
+    width: 100%;
+    color: white;
+}
+
+.remove-from-watch-v2 button:hover, .add-to-watch-v2 button:hover{
+    height: 2rem;
+    background: rgba(66, 170, 245, 0.5);
+    width: 100%;
+    color: white;
+    transition: all 0.5s;
 }
 
 
@@ -405,6 +468,35 @@ input{
         filter: brightness(80%);
         transition: all 0.5s;
     }
+
+    /** Anime details page styles **/
+
+    .anime-card-v2{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(457px, auto);
+    }
+
+    .anime-card-image-v2{
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        background: no-repeat center center/cover;
+        margin-left: 0;
+    }
+
+    .anime-card-content-v2{
+        display: grid;
+        row-gap: 15px;
+        margin-left: 0;
+        justify-content: center;
+        margin-top: 15px;
+    }
+    
+    .synopsis{
+        color: black;
+        margin-left: 15px;
+        margin-top: 15px;
+    }
 }
     
 /***************************************************************************** 
@@ -437,8 +529,35 @@ Responsive CSS: Small devices (portrait tablets, large phones, 600px and up)
         transition: all 0.5s;
     }
 
-}
+    /** Anime details page styles **/
 
+    .anime-card-v2{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(457px, auto);
+    }
+
+    .anime-card-image-v2{
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        background: no-repeat center center/cover;
+        margin-left: 0;
+    }
+
+    .anime-card-content-v2{
+        display: grid;
+        row-gap: 15px;
+        margin-left: 0;
+        justify-content: center;
+        margin-top: 15px;
+    }
+    
+    .synopsis{
+        color: black;
+        margin-left: 15px;
+        margin-top: 15px;
+    }
+}
 
 
 /***************************************************************************** 
@@ -452,6 +571,11 @@ Responsive CSS: Small devices (portrait tablets, large phones, 600px and up)
         gap: 15px;
     }
     
+    .anime-card-v2{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: minmax(457px, auto);
+    }
 }
 
 /***************************************************************************** 
@@ -480,5 +604,6 @@ Responsive CSS large: Extra large devices (large laptops and desktops, 1200px an
         gap: 15px;
     }
 }
+
 
 

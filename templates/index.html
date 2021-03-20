@@ -10,7 +10,7 @@
     <div class="container">    
     <section class="anime-cards-container">
     {% for anime in anime_trending_list %}
-    <div class="anime-card">   
+    <div class="anime-card" id="{{ anime[0] }}">   
     <div class="anime-card-image" style="background-image: url({{anime[3]}});"></div>
         <div class="anime-card-content">
             <div class="anime-card-title">{{anime[1]}}</div>
