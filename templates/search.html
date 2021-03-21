@@ -11,8 +11,8 @@
                 {% endfor %}
             </ul>
             {% endif %}
-        {% endwith %}
-            <h2>Looking for a specific anime?</h1>
+        {% endwith %}    
+        <h2>Looking for a specific anime?</h1>
             <form method="POST" class="search-form">
             {{ form.hidden_tag() }}
             {% for field in form if field.widget.input_type != 'hidden' %}
@@ -27,8 +27,7 @@
             </form>
         </div>
         
-        <div class="test"></div>
-        <section class="search-anime-cards-container">
+        <section class="search-anime-cards-container-v2">
         {% for anime in anime_search_list %}
         <div class="anime-card">   
             <div class="anime-card-image" style="background-image: url({{anime[3]}});"></div>

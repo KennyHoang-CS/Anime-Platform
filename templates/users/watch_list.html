@@ -3,11 +3,19 @@
     {% block content %}
     <div class="user-animes-wrapper">
     <section class="search-anime-cards-container">
+        <div class="anime-card-v3">   
+            <div class="anime-card-image" style="background-image: url('https://i.imgur.com/iD0S1Vx.png');"></div>
+                <div class="anime-card-content">
+                    <div class="anime-card-title">{{ g.user.username }}'s Watch List</h2></div>
+                </div>
+            <div class="anime-card-footers-v2">
+            </div>
+        </div> 
         {% for anime in myList %}
         <div class="anime-card-v3">   
             <div class="anime-card-image" style="background-image: url({{anime[3]}});"></div>
                 <div class="anime-card-content">
-                    <div class="anime-card-title">{{anime[1]}}</div>
+                    <div class="anime-card-title"><a href="/animes/{{ anime[0] }}">{{anime[1]}}</a></div>
                     <div class="anime-card-genre">{{anime[5]}}</div>
                     <div class="anime-card-description">{{anime[2]}}</div>
                 </div>
