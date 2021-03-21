@@ -1,6 +1,10 @@
 const BASE_URL = "http://localhost:5000/api";
 
+let videoURL = document.getElementById('videoURL')
+
 videoIDs = []
+introVideoIDs = ["Q8bmv-14OVI", "P_YtFPg9tNE", "68UROyvw-Ac", "LFVKmVTAHpk", "Lk3fJsIOnKw&t=108s"]
+
 
 async function getVideoIDs(){
     let response = await axios.get(`${BASE_URL}/data`);
@@ -21,17 +25,16 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 //    after the API code downloads.
 var player;
 
-    
-function onYouTubeIframeAPIReady() {
+
+window.onYouTubeIframeAPIReady = function() {
     player = new YT.Player('player', {
     height: '450',
     width: '100%',
-    videoId: getRandomVideoID() || "Q8bmv-14OVI",
+    videoId: videoURL.value,
     events: {
     'onReady': onPlayerReady,
     'onStateChange': onPlayerStateChange
     }});
-    
 }
 
 // The API will call this function when the video player is ready.
@@ -58,11 +61,15 @@ function stopVideo() {
 
 
 function getRandomVideoID(){
-    
-    let why = Math.floor(Math.random() * 16)
-    console.log("random number is " + why)
-    console.log("youtube emded is " + videoIDs[why])
-    return videoIDs[why]
+    console.log('get random vid () called')
+    let i = videoIDs.length, k, temp;
+    while(--i > 0){
+        k = Math.floor(Math.random() * (i + 1));
+        temp = videoIDs[k];
+        videoIDs[k] = videoIDs[i];
+        videoIDs[i] = temp;
+    }
+    return videoIDs[0]
 }
 
 getVideoIDs();

@@ -1,12 +1,18 @@
 {% extends 'base.html' %}
 
     {% block content %}
-    
-    {{ testVideos }}
+    <button id="videoURL" value={{ video }}></button>
     <div id="player">
-       
+        
     </div>
-
+    <span>
+        <div class="index-page-headers">
+        <h2 class="index-page-header">Trending Animes</h2>
+        <h2 class="index-page-header">To skip above video, go to end.</h2>
+        </div>
+    </span>
+    
+    
     <div class="container">    
     <section class="anime-cards-container">
     {% for anime in anime_trending_list %}

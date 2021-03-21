@@ -6,6 +6,8 @@ from forms import UserLoginForm, UserRegisterForm, SearchForm
 from sqlalchemy.exc import IntegrityError
 import requests, random
 from helpers import processResponse, handleResponse2, getVideo, videoIDs
+from threading import Timer
+
 
 app = Flask(__name__)
 
@@ -116,24 +118,25 @@ def logout():
 def index():
     """ The homepage that will show the trending animes! """
     
-    response = requests.get("https://kitsu.io/api/edge/trending/anime?limit=16")
+    response = requests.get("https://kitsu.io/api/edge/trending/anime?limit=20")
     animeIDs = []
     if g.user:
         animeIDs = [id.anime_id for id in list(g.user.watchList)]
     myList = processResponse(response.json(), "trending", animeIDs)
-
-
-    return render_template('index.html', anime_trending_list = myList)
+    
+    video = randomVideo(videoIDs)
+    
+    return render_template('index.html', anime_trending_list = myList, video=video)
 
 @app.route('/api/data')
 def getVideoIDs():
     """ sads """
     return jsonify(videoIDs)
 
-@app.route('/api/random')
-def randomVideo():
+#@app.route('/api/random')
+def randomVideo(videoIDs):
     print("API RANDOM CALLED")
-    return videoIDs[random.randint(0,16)]
+    return videoIDs[random.randint(0,20)]
 
 
 
@@ -251,8 +254,6 @@ def search_anime():
     return render_template('search.html', form=form)
 
 
-
-
 ##############################################################################
 # Turn off all caching in Flask
 #   (useful for dev; in production, this kind of stuff is typically
@@ -269,3 +270,4 @@ def add_header(req):
     req.headers["Expires"] = "0"
     req.headers['Cache-Control'] = 'public, max-age=0'
     return req
+

@@ -4,6 +4,9 @@
     box-sizing: border-box;
 }
 
+#videoURL{
+    display: none;
+}
 
 body{
     margin: 0;
@@ -12,6 +15,18 @@ body{
     font-size: 1.25rem;
     line-height: 1.3;
     font-family: 'Poppins', sans-serif;
+}
+
+.index-page-header{
+    color: black;
+    margin: 0;
+    margin-left: 10px;
+}
+
+.index-page-headers{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap-reverse;
 }
 
 .container{

@@ -8,7 +8,7 @@ def processResponse(response, flag, animeIDs):
     myList = []
     
     if flag == 'trending': 
-        for i in range(0, 16):
+        for i in range(0, 20):
             myList.append((
             response['data'][i]['id'],
             response['data'][i]['attributes']['canonicalTitle'],
