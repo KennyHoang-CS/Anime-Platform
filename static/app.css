@@ -612,6 +612,13 @@ Responsive CSS: Small devices (portrait tablets, large phones, 600px and up)
 ******************************************************************************/
 
 @media only screen and (min-width: 768px){
+    
+    .container{
+        background: #101010;
+        margin: 10px;
+        margin-top: 5px;
+    }
+    
     .anime-cards-container{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
