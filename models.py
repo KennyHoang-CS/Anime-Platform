@@ -31,16 +31,22 @@ class User(db.Model):
         nullable=False,
     )
 
+    email = db.Column(
+        db.Text,
+        unique=True,
+        nullable=True,
+    )
+
     watchList = db.relationship( 
         'WatchAnime',
         backref='users'
     )
 
     def __repr__(self):
-        return f"<User #{self.id}: {self.username}>"
+        return f"<User #{self.id}: {self.username}, {self.email}>"
 
     @classmethod
-    def signup(cls, username, password):
+    def signup(cls, username, email, password):
         """Sign up user.
         Hashes password and adds user to system.
         """
@@ -49,6 +55,7 @@ class User(db.Model):
 
         user = User(
             username=username,
+            email=email,
             password=hashed_pwd
         )
 

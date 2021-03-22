@@ -30,7 +30,7 @@ body{
 }
 
 .container{
-    background: #101010;
+    background: #10101000;
 }
 
 /** Anime cards style **/
@@ -390,7 +390,7 @@ input{
     overflow: hidden;
 }
 
-#englishTitle{
+#search-query{
     margin-bottom: 0;
 }
 

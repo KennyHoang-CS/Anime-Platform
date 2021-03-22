@@ -93,6 +93,7 @@ def register():
             user = User.signup(
                 username=form.username.data,
                 password=form.password.data,
+                email=form.email.data or ""
             )
             db.session.commit()
 
@@ -167,7 +168,7 @@ def show_watch_list(user_id):
 
     # Is the user logged in to access 'watch-list' feature. 
     if not g.user:
-        flash("Login is required to access your watch list.", "info")
+        flash("Login is required to access your watch list.", "warning")
         return redirect("/login")
 
     # Upon success of user validation, get the user and user's watch list. 
@@ -281,7 +282,7 @@ def search_anime():
         if form.validate_on_submit():
             
             # Searching by category: action, adventure, ....?
-            data = request.form['englishTitle']
+            data = request.form['searchQuery']
             response =  requests.get(f'{BASE_PATH}/anime?filter[categories]={data}')
             response = response.json()
             

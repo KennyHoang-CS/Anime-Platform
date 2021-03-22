@@ -31,4 +31,4 @@ class UserLoginForm(FlaskForm):
 class SearchForm(FlaskForm):
     """ Search Form. """
 
-    englishTitle = StringField('English Title...')
+    searchQuery = StringField('Search by title, category, ...')
