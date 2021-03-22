@@ -117,7 +117,7 @@ def logout():
     flash("Logging out...", "success")
 
     # Redirect to the login page after the user logs out ('index.html'). 
-    return redirect('/')
+    return redirect('/login')
 
 @app.route('/')
 def index():
