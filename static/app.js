@@ -1,18 +1,24 @@
 const BASE_URL = "http://localhost:5000/api";
 
+// Get reference to our button that holds our initial video embed code. 
 let videoURL = document.getElementById('videoURL')
 
-videoIDs = []
-introVideoIDs = ["Q8bmv-14OVI", "P_YtFPg9tNE", "68UROyvw-Ac", "LFVKmVTAHpk", "Lk3fJsIOnKw&t=108s"]
+// To hold our list of youtube embed codes for our Youtube Iframe API to use. 
+let videoIDs = []
 
-
+// Get our list of youtube embed codes from our python flask back-end. 
 async function getVideoIDs(){
-    let response = await axios.get(`${BASE_URL}/data`);
-    response = new Set(response.data)
+    let response = await axios.get(`${BASE_URL}/trailers`);
+    // Temporary fix until optimization update, 
+    // the data gets duplicated and expands the list every time home page is accessed.
+    response = new Set(response.data)   
     response = Array.from(response)
-    console.log(response)
-    videoIDs = response;
+    videoIDs = response
 }
+
+/************************************************** 
+ * YOUTUBE IFRAME API 
+ */ 
 
 // This code loads the IFrame Player API code asynchronously.
 var tag = document.createElement('script');
@@ -22,15 +28,15 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 //  This function creates an <iframe> (and YouTube player)
-//    after the API code downloads.
+//   after the API code downloads.
 var player;
-
 
 window.onYouTubeIframeAPIReady = function() {
     player = new YT.Player('player', {
     height: '450',
     width: '100%',
-    videoId: videoURL.value,
+    // get our initial video embed code that is placed into our index.html document from our flask python back-end.
+    videoId: videoURL.value, 
     events: {
     'onReady': onPlayerReady,
     'onStateChange': onPlayerStateChange
@@ -43,11 +49,10 @@ function onPlayerReady(event) {
 }
 
 //  The API calls this function when the player's state changes.
-//    The function indicates that when playing a video (state=1),
-//    the player should play for six seconds and then stop.
-var done = false;
+//    The function indicates that when video stop playing (state=0),
 function onPlayerStateChange(event) {
     
+    // Our video reached the end, now play a random video from our 
     if (player.getPlayerState() === 0){
         player.cueVideoById(getRandomVideoID())
         player.playVideo()
@@ -55,13 +60,14 @@ function onPlayerStateChange(event) {
 
 }
 
+// To stop the video. 
 function stopVideo() {
     player.stopVideo();
 }
 
-
+// Fisher-Yates Shuffle Algorithm. 
 function getRandomVideoID(){
-    console.log('get random vid () called')
+    // Shuffle our videoIDs (array of youtube embed IDs). 
     let i = videoIDs.length, k, temp;
     while(--i > 0){
         k = Math.floor(Math.random() * (i + 1));
@@ -69,7 +75,8 @@ function getRandomVideoID(){
         videoIDs[k] = videoIDs[i];
         videoIDs[i] = temp;
     }
-    return videoIDs[0]
+    return videoIDs[0]  // Return the first element, after videoIDs is shuffled. 
 }
 
+// Make a call to our flask-python backend to get our youtube embed IDs data. 
 getVideoIDs();

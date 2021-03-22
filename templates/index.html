@@ -2,9 +2,7 @@
 
     {% block content %}
     <button id="videoURL" value={{ video }}></button>
-    <div id="player">
-        
-    </div>
+    <div id="player"></div>
     <span>
         <div class="index-page-headers">
         <h2 class="index-page-header">Trending Animes</h2>
@@ -12,19 +10,18 @@
         </div>
     </span>
     
-    
     <div class="container">    
-    <section class="anime-cards-container">
-    {% for anime in anime_trending_list %}
-    <div class="anime-card" id="{{ anime[0] }}">   
-    <div class="anime-card-image" style="background-image: url({{anime[3]}});"></div>
-        <div class="anime-card-content">
-            <div class="anime-card-title"><a href="/animes/{{ anime[0] }}">{{anime[1]}}</a></div>
-            <div class="anime-card-genre">{{anime[5]}}</div>
-            <div class="anime-card-description">{{anime[2]}}</div>
-        </div>
-        <div class="anime-card-footers">
-            <span class="anime-card-avg-rating"> Avg. Rating {{anime[4]}}</span>
+        <section class="anime-cards-container">
+        {% for anime in anime_trending_list %}
+        <div class="anime-card" id="{{ anime[0] }}">   
+            <div class="anime-card-image" style="background-image: url({{anime[3]}});"></div>
+            <div class="anime-card-content">
+                <div class="anime-card-title"><a href="/animes/{{ anime[0] }}">{{anime[1]}}</a></div>
+                <div class="anime-card-genre">{{anime[5]}}</div>
+                <div class="anime-card-description">{{anime[2]}}</div>
+            </div>
+            <div class="anime-card-footers">
+                <span class="anime-card-avg-rating"> Avg. Rating {{anime[4]}}</span>
     
                 {% if anime[6] == 'user_is_watching' %}
                 <form action="/users/{{ anime[0] }}/delete" method="POST">
@@ -35,9 +32,9 @@
                     <span class="add-to-watch"><button>Add to watch list</button></span>
                 </form>
                 {% endif %} 
-        </div>
-    </div> 
-    {% endfor  %}
-    </section>
+            </div>
+        </div> 
+        {% endfor  %}
+        </section>
     </div>
     {% endblock %}

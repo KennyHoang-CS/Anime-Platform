@@ -12,8 +12,8 @@
                 {% endfor %}
             </ul>
             {% endif %}
-        {% endwith %}    
-        <h2>Looking for a specific anime?</h1>
+            {% endwith %}    
+            <h2>Looking for a specific anime?</h1>
             <form method="POST" class="search-form">
             {{ form.hidden_tag() }}
             {% for field in form if field.widget.input_type != 'hidden' %}
@@ -21,7 +21,7 @@
             <span class="text-danger">{{ error }}</span>
             {% endfor %}
             <div class="">
-            {{ field(placeholder=field.label.text) }} <br>
+                {{ field(placeholder=field.label.text) }} <br>
             </div>
             {% endfor %}
             <button type="submit"><i class="fas fa-search"></i></button>
@@ -40,13 +40,13 @@
             <div class="anime-card-footers">
                 <span class="anime-card-avg-rating"> Avg. Rating {{anime[4]}}</span>
                 <form action="/users/{{ anime[0] }}/add" method="POST">
-                <span class="add-to-watch"><button>Add to watch list</button></span>
+                    <span class="add-to-watch"><button>Add to watch list</button></span>
                 </form> 
             </div>
         </div> 
         {% endfor  %}
         </section>
     </div>
-    </body>
+</body>
     {% endblock %}
 

@@ -18,38 +18,31 @@
         </ul>
         {% endif %}
     {% endwith %}
-    <div class="login-register-container">
-        
-    <a href="/" id="site-logo">
-        <img src="https://i.ibb.co/Hhs9y6T/site-logo.png" alt="site-logo" width="132" height="132">   
-    </a>
-    
-    <div class="form-container">
-        <form method="POST">
-            {{ form.hidden_tag() }}
-            <div class="login-register-links-wrapper">
-                
-                <a href="/login">Login</a>
-                
-                <span class="nav-active">
-                <a href="/register">Register</a><br>
-                </span>
+    <div class="login-register-container"> 
+        <a href="/" id="site-logo">
+            <img src="https://i.ibb.co/Hhs9y6T/site-logo.png" alt="site-logo" width="132" height="132">   
+        </a>
+        <div class="form-container">
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                <div class="login-register-links-wrapper">
+                    <a href="/login">Login</a>
+                    <span class="nav-active">
+                        <a href="/register">Register</a><br>
+                    </span>
+                </div>
+            {% for field in form if field.widget.input_type != 'hidden' %}
+            {% for error in field.errors %}
+                <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+            <div class="input-field-wrapper">
+                <label for="">{{field.label.text}}</label><br>
+                {{ field(placeholder=field.label.text) }} <br>
             </div>
-        {% for field in form if field.widget.input_type != 'hidden' %}
-        {% for error in field.errors %}
-            <span class="text-danger">{{ error }}</span>
-        {% endfor %}
-        <div class="input-field-wrapper">
-        <label for="">{{field.label.text}}</label><br>
-        {{ field(placeholder=field.label.text) }} <br>
+            {% endfor %}
+                <input type="submit" value="Register">
+            </form>
         </div>
-        {% endfor %}
-    
-        <input type="submit" value="Register">
-        </form>
     </div>
-</div>
-
-
 </body>
 </html>

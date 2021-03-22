@@ -7,7 +7,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="/static/app.css">
 </head>
-<body class="body-v2">
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
         <ul class="flashes">
@@ -17,38 +16,34 @@
         </ul>
         {% endif %}
     {% endwith %}
+    
     <div class="login-register-container">
-        
-    <a href="/" id="site-logo">
-        <img src="https://i.ibb.co/Hhs9y6T/site-logo.png" alt="site-logo" width="132" height="132">   
-    </a>
-    <div class="form-container">
-        <form method="POST">
-            <div class="login-register-links-wrapper">
-                <span class="nav-active">
-                <a href="/login">Login</a>
-                </span>
-                <span>
-                <a href="/register">Register</a><br>
-                </span>
-            </div>
-        {{ form.hidden_tag() }}
-        {% for field in form if field.widget.input_type != 'hidden' %}
-        {% for error in field.errors %}
-            <span class="text-danger">{{ error }}</span>
-        {% endfor %}
-        <div class="input-field-wrapper">
-        <label for="">{{field.label.text}}</label><br>
-        {{ field(placeholder=field.label.text) }} <br>
+        <a href="/" id="site-logo">
+            <img src="https://i.ibb.co/Hhs9y6T/site-logo.png" alt="site-logo" width="132" height="132">   
+        </a>
+        <div class="form-container">
+            <form method="POST">
+                <div class="login-register-links-wrapper">
+                    <span class="nav-active">
+                        <a href="/login">Login</a>
+                    </span>
+                    <span>
+                        <a href="/register">Register</a><br>
+                    </span>
+                </div>
+            {{ form.hidden_tag() }}
+            {% for field in form if field.widget.input_type != 'hidden' %}
+            {% for error in field.errors %}
+                <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+            <div class="input-field-wrapper">
+                <label for="">{{field.label.text}}</label><br>
+                {{ field(placeholder=field.label.text) }} <br>
+                </div>
+            {% endfor %}
+            <input type="submit" value="Login">
+            </form>
         </div>
-        {% endfor %}
-      
-
-        <input type="submit" value="Login">
-        </form>
     </div>
-</div>
-
-
 </body>
 </html>

@@ -2,14 +2,13 @@
 
     {% block content %}
     <div class="user-animes-wrapper">
-    <section class="search-anime-cards-container">
+        <section class="search-anime-cards-container">
         <div class="anime-card-v3">   
             <div class="anime-card-image" style="background-image: url('https://i.imgur.com/iD0S1Vx.png');"></div>
                 <div class="anime-card-content">
                     <div class="anime-card-title">{{ g.user.username }}'s Watch List</h2></div>
                 </div>
-            <div class="anime-card-footers-v2">
-            </div>
+            <div class="anime-card-footers-v2"></div>
         </div> 
         {% for anime in myList %}
         <div class="anime-card-v3">   
@@ -27,6 +26,6 @@
             </div>
         </div> 
         {% endfor  %}
-    </section>
+        </section>
     </div>
     {% endblock %}
