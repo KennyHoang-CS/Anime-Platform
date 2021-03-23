@@ -104,6 +104,9 @@ def randomIntroVideo(videoIDs):
         video = 'DpEfsDmMyF4'
     elif video == 'LHtdKWJdif4':
         video = 'MGRm4IzK1SQ'
-    
+    elif video == 'MDrjS3ePLso':
+        video = 'FY17vwF0Bqc'
+    elif video == 'tMblzsXwAKo':
+        video = '2JAElThbKrI'
     return video
 
