@@ -6,6 +6,20 @@ let videoURL = document.getElementById('videoURL')
 // To hold our list of youtube embed codes for our Youtube Iframe API to use. 
 let videoIDs = []
 
+
+/*************************************************************************
+    This particular issue relates to Heroku Deployment.
+    On Heroku, it would load the initial video but would play the same video
+    over and over. Issue: the youtube iframe API is not detecting the 'video'
+    state change of '0,' which indicates the video has ended in order player
+    another video. This issue is on Heroku, yet it works on my end.
+    So, I need to initialize videoIDs, just and only, for Heroku.
+*/
+videoIDs = ["3KR8_igDs1Y", "tZiHgr0kd7E", "1dy2zPPrKD0", "LHtdKWJdif4", "JezE6iZUWxo", "9ZIgCYSn3e8", "D9iTQRB4XRk", "kgNkGohA20k", "DpEfsDmMyF4", "Z9qXOEwiTGQ", "XBNWo25izJ8", "wxcvbL6o55M", "EHzBhrncmac", "JOGp2c7-cKc", "yb2R1l0O9Zs", "um-tFlVamOI", "4TrEY9Zs_FQ", "tMblzsXwAKo", "MDrjS3ePLso", "D5fYOnwYkj4"]
+
+
+
+
 // Get our list of youtube embed codes from our python flask back-end. 
 async function getVideoIDs(){
     let response = await axios.get(`${BASE_URL}/trailers`);
@@ -56,6 +70,7 @@ function onPlayerStateChange(event) {
 
     // Our video reached the end, now play a random video from our 
     if (player.getPlayerState() === 0){
+        console.log('getPlayerState() called', status)
         player.cueVideoById(getRandomVideoID())
         player.playVideo()
     } else {
