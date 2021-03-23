@@ -96,5 +96,14 @@ def getAnimeData(user_list):
 
 def randomIntroVideo(videoIDs):
     """ Returns a random youtube embed ID in our list. """
-    return videoIDs[random.randint(0,20)]
+    
+    video = videoIDs[random.randint(0,20)]
+    
+    # This is for Heroku APP Deployment, owners blocks them on Heroku Site. 
+    if video == 'EHzBhrncmac':
+        video = 'DpEfsDmMyF4'
+    elif video == 'LHtdKWJdif4':
+        video = 'MGRm4IzK1SQ'
+    
+    return video
 
