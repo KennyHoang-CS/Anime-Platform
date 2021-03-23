@@ -6,13 +6,15 @@ from sqlalchemy.exc import IntegrityError
 import requests, random
 from helpers import processResponse, getAnimeData, videoIDs, randomIntroVideo
 from config import my_secret_key
+import os
+
 
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///anime_platform'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
-app.config['SECRET_KEY'] = my_secret_key
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', my_secret_key)
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 #debug = DebugToolbarExtension(app)
 
