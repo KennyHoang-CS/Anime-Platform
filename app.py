@@ -148,7 +148,7 @@ def index():
     # is accessed. To get around that, I will use a random youtube embed ID that is
     # already "processed" here on the backend side and will send its value in a hidden
     # button for the client side to fetch to prevent the initial video error. 
-    raise
+    
     video = randomIntroVideo(videoIDs)
     
     return render_template('index.html', anime_trending_list = myList, video=video)
