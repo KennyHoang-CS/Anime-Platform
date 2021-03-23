@@ -206,6 +206,12 @@ def get_anime_details(anime_id):
     if video is None:
         video = 'Pg7P06d2cyI'
 
+    # HEROKU SPECIFIC: Did they block these videos on Heroku Deployment?
+    if video == 'EHzBhrncmac':
+        video = 'DpEfsDmMyF4'
+    elif video == 'LHtdKWJdif4':
+        video = 'MGRm4IzK1SQ'
+
     # Check if image source exists, otherwise use a different image. 
     try:
         image = anime['data']['attributes']['coverImage']['original']
