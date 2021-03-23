@@ -52,11 +52,17 @@ function onPlayerReady(event) {
 //    The function indicates that when video stop playing (state=0),
 function onPlayerStateChange(event) {
     
+    status = player.getPlayerState() 
+
     // Our video reached the end, now play a random video from our 
     if (player.getPlayerState() === 0){
         player.cueVideoById(getRandomVideoID())
         player.playVideo()
+    } else {
+        console.log('getPlayerState() called', status)
     }
+
+
 
 }
 
