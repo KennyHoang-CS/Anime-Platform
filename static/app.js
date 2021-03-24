@@ -11,7 +11,7 @@ let videoIDs = []
     This particular issue relates to Heroku Deployment.
     On Heroku, it would load the initial video but would play the same video
     over and over. Issue: the youtube iframe API is not detecting the 'video'
-    state change of '0,' which indicates the video has ended in order player
+    state change of '0,' which indicates the video has ended in order play
     another video. This issue is on Heroku, yet it works on my end.
     So, I need to initialize videoIDs, just and only, for Heroku.
 */
