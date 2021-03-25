@@ -7,7 +7,7 @@ class UserRegisterForm(FlaskForm):
     """Form for adding users."""
 
     username = StringField('Username', validators=[DataRequired()])
-    email = StringField('(Optional) Email', validators=[Optional(), Email()])
+    email = StringField('E-mail', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired(), Length(message="Password length must be at least 6.", min=6)])
     password2 = PasswordField('Confirm Password', validators=[DataRequired(), Length(message="Password length must be at least 6.", min=6)])
 

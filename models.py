@@ -34,7 +34,7 @@ class User(db.Model):
     email = db.Column(
         db.Text,
         unique=True,
-        nullable=True,
+        nullable=False,
     )
 
     watchList = db.relationship( 

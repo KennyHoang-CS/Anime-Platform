@@ -97,13 +97,13 @@ def register():
         try:
             user = User.signup(
                 username=form.username.data,
-                password=form.password.data,
-                email=form.email.data or ""
+                email=form.email.data,
+                password=form.password.data
             )
             db.session.commit()
 
         except IntegrityError:
-            flash("Username already taken", 'danger')
+            flash("Username already taken.", 'error')
             return render_template('users/register.html', form=form)
 
         # Upon successful user register, add new user to session and redirect to home page ('index.html').
