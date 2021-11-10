@@ -1,15 +1,21 @@
-# Title
- ## Anime Platform
-    https://anime-platform.herokuapp.com/
+# Anime Platform: hosted [here](https://anime-platform.herokuapp.com/)
+![image](https://user-images.githubusercontent.com/77515138/141171045-a13bbf20-6c6e-4a07-9741-64f6e5d81420.png) 
 
 # Description
     A platform to view trending animes. Users can sign-up/register to add animes
     to their watch-list, or search for anime. 
+![image](https://user-images.githubusercontent.com/77515138/141172022-ed1d48be-39c1-41f5-9e65-b65b0fb7f864.png)
 
 # Features 
-    1) Users' accounts are needed to track animes in their watch-list.
+    1) Users can keep track of their anime watch list. 
+   ![image](https://user-images.githubusercontent.com/77515138/141173257-d85d0e72-7530-488b-805a-74d497bf8944.png)
+ 
     2) Search tool to provide the discovery of new animes that the user does not know yet.
+   ![image](https://user-images.githubusercontent.com/77515138/141172312-218f65a9-a92b-4853-b7f1-2855314fc5d4.png)
+
     3) A link in the anime title that redirects to a page with more details about the anime.
+   ![image](https://user-images.githubusercontent.com/77515138/141172728-18c14cc8-da6b-4414-b441-a8cbc3661716.png)
+
 
 # API
     1) https://kitsu.docs.apiary.io/ provides the anime data, such as what animes are trending.
